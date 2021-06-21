@@ -7,9 +7,14 @@ using System.Web.UI.WebControls;
 
 namespace TPC_Bulacio_Torres
 {
-    public partial class _Default : Page
+    public partial class Login : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnAccept_Click(object sender, EventArgs e)
         {
 
         }
