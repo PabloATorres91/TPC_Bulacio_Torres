@@ -150,3 +150,7 @@ C:\Users\Usuario\source\repos\TPC_Bulacio_Torres\TPC_Bulacio_Torres\TPC_Bulacio_
 C:\Users\Usuario\source\repos\TPC_Bulacio_Torres\TPC_Bulacio_Torres\TPC_Bulacio_Torres\obj\Debug\TPC_Bulacio_Torres.csproj.CopyComplete
 C:\Users\Usuario\source\repos\TPC_Bulacio_Torres\TPC_Bulacio_Torres\TPC_Bulacio_Torres\obj\Debug\TPC_Bulacio_Torres.dll
 C:\Users\Usuario\source\repos\TPC_Bulacio_Torres\TPC_Bulacio_Torres\TPC_Bulacio_Torres\obj\Debug\TPC_Bulacio_Torres.pdb
+C:\Users\pabl0\source\repos\TPC_Bulacio_Torres\TPC_Bulacio_Torres\bin\Dominio.dll
+C:\Users\pabl0\source\repos\TPC_Bulacio_Torres\TPC_Bulacio_Torres\bin\Negocio.dll
+C:\Users\pabl0\source\repos\TPC_Bulacio_Torres\TPC_Bulacio_Torres\bin\Dominio.pdb
+C:\Users\pabl0\source\repos\TPC_Bulacio_Torres\TPC_Bulacio_Torres\bin\Negocio.pdb

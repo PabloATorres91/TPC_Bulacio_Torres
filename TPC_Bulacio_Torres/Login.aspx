@@ -26,7 +26,7 @@
             <div class="form-group">
                 <asp:Label ID="lblPassword" runat="server" Text="Contraseña" CssClass="control-label col-sm-2"></asp:Label>
                 <div class="col-sm-10">
-                    <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control"></asp:TextBox>
+                    <asp:TextBox ID="txtPassword" runat="server" CssClass="form-control" TextMode="Password"></asp:TextBox>
                 </div>
             </div>
             <%-- Agregamos control de boton--%>
