@@ -43,7 +43,7 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - LINK 1 -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="LINK 1">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>LINK 1</span></a>
@@ -59,7 +59,7 @@
 
             <!-- Nav Item - LINK 2 Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="LINK 2" data-toggle="collapse" data-target="#collapseTwo"
+                <a class="nav-link collapsed" href="LINK 2" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>LINK 2</span>
@@ -69,7 +69,7 @@
 
             <!-- Nav Item - LINK 3 Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="LINK 3" data-toggle="collapse" data-target="#collapseUtilities"
+                <a class="nav-link collapsed" href="LINK 3" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>LINK 3</span>
@@ -82,7 +82,7 @@
 
             <!-- Nav Item - LINK 4 Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="LINK 4" data-toggle="collapse" data-target="#collapsePages"
+                <a class="nav-link collapsed" href="LINK 4" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>LINK 4</span>
