@@ -27,7 +27,7 @@ namespace TPC_Bulacio_Torres
 
             if(userNegocio.validateLogin(userID, userPassword))
             {
-                Response.Redirect("Test.aspx");
+                Response.Redirect("Index.aspx");
             }
             
         }
