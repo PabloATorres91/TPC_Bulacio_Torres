@@ -99,9 +99,9 @@
 
             <!-- Nav Item - LINK 6 -->
             <li class="nav-item">
-                <a class="nav-link" href="LINK 6">
+                <a class="nav-link" href="ABMUsuario.aspx">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>LINK 6</span></a>
+                    <span>ABM Usuarios</span></a>
             </li>
 
             <!-- Divider -->

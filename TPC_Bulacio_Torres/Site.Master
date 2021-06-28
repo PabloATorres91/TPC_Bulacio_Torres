@@ -20,8 +20,14 @@
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css" /> 
+
 </head>
+
+    
 <body id="page-top">
+    <form>
 
     <!-- Page Wrapper -->
     <div id="wrapper">
@@ -97,9 +103,9 @@
 
             <!-- Nav Item - LINK 6 -->
             <li class="nav-item">
-                <a class="nav-link" href="LINK 6">
+                <a class="nav-link" href="ABMUsuario.aspx">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>LINK 6</span></a>
+                    <span>ABM Usuarios</span></a>
             </li>
 
             <!-- Divider -->
@@ -170,7 +176,10 @@
                 <!-- Begin Page Content -->
                 
                 <!-- /.container-fluid -->
-
+                <div class="container body-content">
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
             </div>
             <!-- End of Main Content -->
 
@@ -213,6 +222,17 @@
     <script src="js/demo/chart-area-demo.js"></script>
     <script src="js/demo/chart-pie-demo.js"></script>
 
-
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+    </form>
+    <script>
+        $(document).ready(function () {
+            $('#usersTable').DataTable({
+                "language": {
+                    search: "Buscar"
+                }
+            });
+        });
+    </script>
 </body>
 </html>

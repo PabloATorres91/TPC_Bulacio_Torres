@@ -43,5 +43,36 @@ namespace Negocio
                 connection.closeConnection();
             }
         }
+
+        public List<Usuario> listUsers()
+        {
+            List<Usuario> list = new List<Usuario>();
+            connection = new AccesoDatos();
+
+            try
+            {
+                connection.setQuery("SELECT * FROM Users");
+                connection.executeReader();
+                
+                while(connection.DataReader.Read())
+                {
+                    Usuario auxUser = new Usuario();
+                    auxUser.UserName = (string)connection.DataReader["UsersName"];
+                    auxUser.UserIDProfile = (int)connection.DataReader["IDProfiles"];
+                    auxUser.UserEmail = (string)connection.DataReader["UsersEmail"];
+
+                    list.Add(auxUser);
+                }
+                return list;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.closeConnection();
+            }
+        }
     }
 }
