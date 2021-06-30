@@ -60,6 +60,7 @@ namespace Negocio
                     auxUser.UserName = (string)connection.DataReader["UsersName"];
                     auxUser.UserIDProfile = (int)connection.DataReader["IDProfiles"];
                     auxUser.UserEmail = (string)connection.DataReader["UsersEmail"];
+                    auxUser.UserID = (int)connection.DataReader["IDUsers"];
 
                     list.Add(auxUser);
                 }
