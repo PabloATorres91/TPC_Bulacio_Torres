@@ -16,7 +16,6 @@ namespace TPC_Bulacio_Torres
         protected void Page_Load(object sender, EventArgs e)
         {
             userNegocio = new UsuarioNegocio();
-
             list = userNegocio.listUsers();
         }
     }

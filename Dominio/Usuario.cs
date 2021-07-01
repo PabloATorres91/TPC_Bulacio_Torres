@@ -14,6 +14,6 @@ namespace Dominio
         public string   UserName      { get; set; }
         public string   UserEmail     { get; set; }
         public string   UserPass      { get; set; }
-        public string   UserDate      { get; set; }
+        public DateTime   UserDate      { get; set; }
     }
 }
