@@ -9,12 +9,20 @@
             </div>
             <div class="form-group col-md-6">
                 <label for="inputPassword4">Perfil</label>
-                <asp:TextBox ID="txtProfile" runat="server" ToolTip="Perfil"></asp:TextBox>
+                <asp:DropDownList ID="ddlProfile" runat="server"></asp:DropDownList>
             </div>
         </div>
         <div class="form-group">
             <label for="inputAddress">Email</label>
             <asp:TextBox ID="txtEmail" runat="server" ToolTip="Email" MaxLength="100"></asp:TextBox>
+        </div>
+        <div class="form-group">
+            <label for="inputAddress">ID empleado</label>
+            <asp:TextBox ID="txtIdEmployee" runat="server" ToolTip="IdEmployee" MaxLength="100"></asp:TextBox>
+        </div>
+        <div class="form-group">
+            <label for="inputAddress">Fecha Ingreso</label>
+            <asp:TextBox ID="txtIngreso" runat="server" ToolTip="Fecha de ingreso" MaxLength="100"></asp:TextBox>
         </div>
         <%--<div class="form-group">
         <label for="inputAddress2">Address 2</label>

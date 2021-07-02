@@ -24,13 +24,13 @@ namespace TPC_Bulacio_Torres
         protected global::System.Web.UI.WebControls.TextBox txtName;
 
         /// <summary>
-        /// Control txtProfile.
+        /// Control ddlProfile.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtProfile;
+        protected global::System.Web.UI.WebControls.DropDownList ddlProfile;
 
         /// <summary>
         /// Control txtEmail.
@@ -40,5 +40,23 @@ namespace TPC_Bulacio_Torres
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmail;
+
+        /// <summary>
+        /// Control txtIdEmployee.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtIdEmployee;
+
+        /// <summary>
+        /// Control txtIngreso.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtIngreso;
     }
 }

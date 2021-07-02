@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
 using Dominio;
 using Negocio;
 
@@ -13,6 +14,7 @@ namespace TPC_Bulacio_Torres
     {
         UsuarioNegocio userNegocio;
         Usuario user;
+        PerfilNegocio profileNegocio;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -28,7 +30,10 @@ namespace TPC_Bulacio_Torres
                     {
                         txtEmail.Text = user.UserEmail;
                         txtName.Text = user.UserName;
-                        txtProfile.Text = user.UserIDProfile.ToString();
+                        txtIdEmployee.Text = user.UserIDEmployee.ToString();
+                        txtIngreso.Text = user.UserDate.ToString();
+
+                        fillAndSetddlProfiles(user.UserIDProfile.ToString());
                     }
                     else
                     {
@@ -38,6 +43,18 @@ namespace TPC_Bulacio_Torres
                 }
             }
 
+        }
+
+        private void fillAndSetddlProfiles(string profileValue)
+        {
+            profileNegocio = new PerfilNegocio();
+
+            ddlProfile.DataSource = profileNegocio.getProfiles();
+            ddlProfile.DataTextField = "ProfilesName";
+            ddlProfile.DataValueField = "IDProfiles";
+            ddlProfile.DataBind();
+
+            ddlProfile.SelectedValue = profileValue;
         }
     }
 }
