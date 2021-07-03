@@ -53,6 +53,6 @@
           </label>
         </div>
       </div>--%>
-        <button type="submit" class="btn btn-primary">Sign in</button>
+        <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" class="btn btn-primary" OnClick="btnAceptar_Click" />
     </form>
 </asp:Content>

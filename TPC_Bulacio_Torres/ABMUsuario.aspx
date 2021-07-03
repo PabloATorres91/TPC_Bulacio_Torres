@@ -22,8 +22,8 @@
                             <th><%= user.UserName %></th>
                             <th><%= user.UserIDProfile%></th>
                             <th><%= user.UserEmail%></th>
-                            <th> <a href="FormUsuario.aspx?IDUser=<%=user.UserID %>">Modificar</a> </th>
-                            <th> <a href="FormUsuario.aspx?IDUser=<%=user.UserID %>">Eliminar</a> </th>
+                            <th> <a href="FormUsuario.aspx?IDUser=<%=user.UserID %>&Mode=M">Modificar</a> </th>
+                            <th> <a href="FormUsuario.aspx?IDUser=<%=user.UserID %>&Mode=D">Eliminar</a> </th>
                         </tr>
                 <%  } %>
             </tbody>

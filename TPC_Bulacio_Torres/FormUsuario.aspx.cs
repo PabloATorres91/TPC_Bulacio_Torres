@@ -25,7 +25,8 @@ namespace TPC_Bulacio_Torres
                     userNegocio = new UsuarioNegocio();
                     user = new Usuario();
                     user = userNegocio.getFullUser(Request.QueryString["IDUser"]);
-                    
+                    string mode = Request.QueryString["Mode"];
+
                     if(user.UserIDEmployee != 0)
                     {
                         txtEmail.Text = user.UserEmail;
@@ -34,6 +35,24 @@ namespace TPC_Bulacio_Torres
                         txtIngreso.Text = user.UserDate.ToString();
 
                         fillAndSetddlProfiles(user.UserIDProfile.ToString());
+
+                        if (mode == "M")
+                        {
+                            txtEmail.ReadOnly = false;
+                            txtName.ReadOnly = false;
+                            txtIngreso.Enabled = false;
+                            txtIdEmployee.Enabled = false;
+                            btnAceptar.Text = "Modificar";
+                        }
+                        else if(mode == "D")
+                        {
+                            txtName.Enabled = false;
+                            txtEmail.Enabled = false;
+                            txtIngreso.Enabled = false;
+                            txtIdEmployee.Enabled = false;
+                            ddlProfile.Enabled = false;
+                            btnAceptar.Text = "Eliminar";
+                        }
                     }
                     else
                     {
@@ -55,6 +74,34 @@ namespace TPC_Bulacio_Torres
             ddlProfile.DataBind();
 
             ddlProfile.SelectedValue = profileValue;
+        }
+
+        protected void btnAceptar_Click(object sender, EventArgs e)
+        {
+            userNegocio = new UsuarioNegocio();
+            user = new Usuario();
+            try
+            {
+                string mode = Request.QueryString["Mode"];
+                if(mode == "M")
+                {
+                    //Ejecutamos consulta para modificar registro
+                    user.UserName = txtName.Text;
+                    user.UserEmail = txtEmail.Text;
+                    user.UserIDProfile = Convert.ToInt32(ddlProfile.SelectedValue);
+                    //Hasta aca esta todo bien. Falta avanzar en la ejecucion de la consulta. Tomar de referencia el Solution_TP2 (FormAgregar)
+                }
+                else if(mode == "D")
+                {
+                    //Ejecutamos consulta para ¿eliminar? registro
+                }
+            }
+            catch(Exception ex)
+            {
+                //Analizar si hay que agregar un form de error. Por lo pronto reenviamos el error a Index.aspx
+                Session.Add("Error", ex.ToString());
+                Response.Redirect("Index.aspx");
+            }
         }
     }
 }
