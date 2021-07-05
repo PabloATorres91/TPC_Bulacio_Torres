@@ -10,7 +10,7 @@
      <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SITE MASTER</title>
+    <title>TPC_BULACIO_TORRES</title>
     
      <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -101,11 +101,18 @@
                     <span>LINK 5</span></a>
             </li>
 
-            <!-- Nav Item - LINK 6 -->
+            <!-- Nav Item - ABMUsuario-->
             <li class="nav-item">
                 <a class="nav-link" href="ABMUsuario.aspx">
                     <i class="fas fa-fw fa-table"></i>
                     <span>ABM Usuarios</span></a>
+            </li>
+            
+            <!-- Nav Item - ABMMaquina-->
+            <li class="nav-item">
+                <a class="nav-link" href="ABMMaquina.aspx">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>ABM Maquinas</span></a>
             </li>
 
             <!-- Divider -->
