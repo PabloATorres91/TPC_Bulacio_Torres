@@ -97,6 +97,7 @@ namespace Negocio
                     auxUser.UserEmail = (string)connection.DataReader["UsersEmail"];
                     auxUser.UserPass = (string)connection.DataReader["UsersPass"];
                     auxUser.UserDate = (DateTime)connection.DataReader["UsersDate"];
+                    auxUser.UserID = (int)connection.DataReader["IDUsers"];
                 }
 
                 if(auxUser.UserIDEmployee !=0)
@@ -117,6 +118,58 @@ namespace Negocio
                 connection.closeConnection();
             }
 
+        }
+
+        public void modifyUser(Usuario user)
+        {
+            connection = new AccesoDatos();
+
+            try
+            {
+                //update Users set IDProfiles=1 where IDUsers=1
+                string query = "UPDATE Users set IDProfiles = @idprofile, UsersName = @username, UsersEmail = @useremail where IDUsers = @userid";
+                connection.setQuery(query);
+                connection.setQueryParams("@idprofile", user.UserIDProfile);
+                connection.setQueryParams("@username", user.UserName);
+                connection.setQueryParams("@useremail", user.UserEmail);
+                connection.setQueryParams("@userid", user.UserID);
+
+                connection.executeAction();
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.closeConnection();
+            }
+        }
+
+        public void addUser(Usuario user)
+        {
+            connection = new AccesoDatos();
+            try
+            {
+                string newName = user.UserName;
+                string newEmail = user.UserEmail;
+                int newIDProfile = user.UserIDProfile;
+                DateTime newInitDate = DateTime.Now;
+                string newPass = "1234";//Pass por default
+
+                string values = "VALUES('" + newName + "', '" + newEmail + "', '" + newIDProfile + "', '" + newInitDate + "', '" + newPass + "')";
+                string query = "INSERT INTO Users (UsersName, UsersEmail, IDProfiles, UsersDate, UsersPass) " + values;
+                connection.setQuery(query);
+                connection.executeAction();
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.closeConnection();
+            }
         }
     }
 }

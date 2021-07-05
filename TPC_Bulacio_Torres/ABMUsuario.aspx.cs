@@ -18,5 +18,10 @@ namespace TPC_Bulacio_Torres
             userNegocio = new UsuarioNegocio();
             list = userNegocio.listUsers();
         }
+
+        protected void btnAgregar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("FormUsuario.aspx");
+        }
     }
 }

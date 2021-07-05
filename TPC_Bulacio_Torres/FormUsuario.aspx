@@ -24,6 +24,10 @@
             <label for="inputAddress">Fecha Ingreso</label>
             <asp:TextBox ID="txtIngreso" runat="server" ToolTip="Fecha de ingreso" MaxLength="100"></asp:TextBox>
         </div>
+        <div class="form-group">
+            <label for="inputAddress">ID Usuario</label>
+            <asp:TextBox ID="txtUserID" runat="server" ToolTip="ID de usuario"></asp:TextBox>
+        </div>
         <%--<div class="form-group">
         <label for="inputAddress2">Address 2</label>
         <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">

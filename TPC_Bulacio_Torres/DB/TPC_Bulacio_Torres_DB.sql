@@ -100,7 +100,8 @@ CREATE TABLE Users(
 	UsersName varchar (50) not null unique,
 	UsersEmail varchar (100) not null unique,
 	UsersPass varchar (100) not null,
-	UsersDate datetime not null check (UsersDate <= GETDATE())
+	UsersDate datetime not null check (UsersDate <= GETDATE()),
+	UserState bit not null
 )
 GO
 CREATE TABLE Logins(
@@ -125,18 +126,3 @@ ALTER TABLE Logins add constraint CHK_LoginsDateIn check (LoginsDateIn <= GETDAT
 ALTER TABLE Logins add constraint CHK_LoginsDateOut check (LoginsDateOut > LoginsDateIn) 
 ALTER TABLE StopLog add constraint CHK_StopLogBegin check (StopLogBegin <= GETDATE())
 ALTER TABLE StopLog add constraint CHK_StopLogFinish check (StopLogFinish > StopLogBegin)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

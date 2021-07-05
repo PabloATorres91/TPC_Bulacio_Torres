@@ -194,9 +194,9 @@ SET IDENTITY_INSERT [dbo].[Profiles] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Users] ON
 GO
-INSERT [dbo].[Users]([IDUsers], [IDProfiles], [IDEmployee], [UsersName], [UsersEmail], [UsersPass], [UsersDate]) VALUES (1, 1, null, N'PabloB', N'pablofbulacio@gmail.com', N'0000', CAST(N'2021-06-20' as date))
+INSERT [dbo].[Users]([IDUsers], [IDProfiles], [IDEmployee], [UsersName], [UsersEmail], [UsersPass], [UsersDate], [UserState]) VALUES (1, 1, null, N'PabloB', N'pablofbulacio@gmail.com', N'0000', CAST(N'2021-06-20' as date), CONVERT(bit,'True'))
 GO
-INSERT [dbo].[Users]([IDUsers], [IDProfiles], [IDEmployee], [UsersName], [UsersEmail], [UsersPass], [UsersDate]) VALUES (2, 1, null, N'PabloT', N'pablotorres@gmail.com', N'0001', CAST(N'2021-06-20' as date))
+INSERT [dbo].[Users]([IDUsers], [IDProfiles], [IDEmployee], [UsersName], [UsersEmail], [UsersPass], [UsersDate], [UserState]) VALUES (2, 1, null, N'PabloT', N'pablotorres@gmail.com', N'0001', CAST(N'2021-06-20' as date), CONVERT(bit,'True'))
 GO
 SET IDENTITY_INSERT [dbo].[Users] OFF
 GO

@@ -18,6 +18,8 @@ namespace TPC_Bulacio_Torres
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            txtUserID.Enabled = false;
+            txtIngreso.Enabled = false;
             if (!IsPostBack)
             {
                 if (Request.QueryString["IDUser"] != null)
@@ -26,21 +28,22 @@ namespace TPC_Bulacio_Torres
                     user = new Usuario();
                     user = userNegocio.getFullUser(Request.QueryString["IDUser"]);
                     string mode = Request.QueryString["Mode"];
+                    
 
-                    if(user.UserIDEmployee != 0)
+                    if (user.UserIDEmployee != 0)
                     {
                         txtEmail.Text = user.UserEmail;
                         txtName.Text = user.UserName;
                         txtIdEmployee.Text = user.UserIDEmployee.ToString();
                         txtIngreso.Text = user.UserDate.ToString();
+                        txtUserID.Text = user.UserID.ToString();
 
-                        fillAndSetddlProfiles(user.UserIDProfile.ToString());
+                        fillAndSetddlProfiles();
 
                         if (mode == "M")
                         {
                             txtEmail.ReadOnly = false;
                             txtName.ReadOnly = false;
-                            txtIngreso.Enabled = false;
                             txtIdEmployee.Enabled = false;
                             btnAceptar.Text = "Modificar";
                         }
@@ -48,7 +51,6 @@ namespace TPC_Bulacio_Torres
                         {
                             txtName.Enabled = false;
                             txtEmail.Enabled = false;
-                            txtIngreso.Enabled = false;
                             txtIdEmployee.Enabled = false;
                             ddlProfile.Enabled = false;
                             btnAceptar.Text = "Eliminar";
@@ -58,13 +60,29 @@ namespace TPC_Bulacio_Torres
                     {
                         //no se encontró usuario.
                     }
+                }
+                else
+                {
+                    //Si entra por este else, significa que clickeó en Agregar (ya que no enviamos parámetros en la URL)
+                    userNegocio = new UsuarioNegocio();
+                    user = new Usuario();
 
+                    try
+                    {
+                        txtIngreso.Text = DateTime.Now.ToShortDateString();
+                        txtIdEmployee.Enabled = false;
+                        fillAndSetddlProfiles();
+                    }
+                    catch(Exception ex)
+                    {
+                        throw ex;
+                    }
                 }
             }
 
         }
 
-        private void fillAndSetddlProfiles(string profileValue)
+        private void fillAndSetddlProfiles()
         {
             profileNegocio = new PerfilNegocio();
 
@@ -73,7 +91,14 @@ namespace TPC_Bulacio_Torres
             ddlProfile.DataValueField = "IDProfiles";
             ddlProfile.DataBind();
 
-            ddlProfile.SelectedValue = profileValue;
+            if(Convert.ToBoolean(user.UserIDProfile))
+            {
+                ddlProfile.SelectedValue = user.UserIDProfile.ToString();
+            }
+            else
+            {
+                ddlProfile.SelectedValue = "0";
+            }
         }
 
         protected void btnAceptar_Click(object sender, EventArgs e)
@@ -89,11 +114,21 @@ namespace TPC_Bulacio_Torres
                     user.UserName = txtName.Text;
                     user.UserEmail = txtEmail.Text;
                     user.UserIDProfile = Convert.ToInt32(ddlProfile.SelectedValue);
+                    user.UserID = Convert.ToInt32(txtUserID.Text);
                     //Hasta aca esta todo bien. Falta avanzar en la ejecucion de la consulta. Tomar de referencia el Solution_TP2 (FormAgregar)
+                    userNegocio.modifyUser(user);
                 }
                 else if(mode == "D")
                 {
                     //Ejecutamos consulta para ¿eliminar? registro
+                }
+                else
+                {
+                    //Ejecutamos consulta para AGREGAR un registro
+                    user.UserName = txtName.Text;
+                    user.UserEmail = txtEmail.Text;
+                    user.UserIDProfile = Convert.ToInt32(ddlProfile.SelectedValue);
+                    userNegocio.addUser(user);
                 }
             }
             catch(Exception ex)

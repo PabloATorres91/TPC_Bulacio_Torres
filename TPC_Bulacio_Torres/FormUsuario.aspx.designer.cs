@@ -60,6 +60,15 @@ namespace TPC_Bulacio_Torres
         protected global::System.Web.UI.WebControls.TextBox txtIngreso;
 
         /// <summary>
+        /// Control txtUserID.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtUserID;
+
+        /// <summary>
         /// Control btnAceptar.
         /// </summary>
         /// <remarks>
