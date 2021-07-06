@@ -28,7 +28,7 @@ namespace TPC_Bulacio_Torres
                     user = new Usuario();
                     user = userNegocio.getFullUser(Request.QueryString["IDUser"]);
                     string mode = Request.QueryString["Mode"];
-                    
+                        
 
                     if (user.UserIDEmployee != 0)
                     {

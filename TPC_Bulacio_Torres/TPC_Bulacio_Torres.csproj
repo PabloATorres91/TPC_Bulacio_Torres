@@ -113,6 +113,7 @@
     <Content Include="css\styles.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="FormMaquina.aspx" />
     <Content Include="FormUsuario.aspx" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -177,6 +178,13 @@
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="FormMaquina.aspx.cs">
+      <DependentUpon>FormMaquina.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormMaquina.aspx.designer.cs">
+      <DependentUpon>FormMaquina.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FormUsuario.aspx.cs">
       <DependentUpon>FormUsuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
