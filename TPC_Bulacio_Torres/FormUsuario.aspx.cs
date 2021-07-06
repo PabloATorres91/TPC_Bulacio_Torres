@@ -72,8 +72,9 @@ namespace TPC_Bulacio_Torres
                         txtIngreso.Text = DateTime.Now.ToShortDateString();
                         txtIdEmployee.Enabled = false;
                         fillAndSetddlProfiles();
+                        btnAceptar.Text = "Agregar";
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
                         throw ex;
                     }

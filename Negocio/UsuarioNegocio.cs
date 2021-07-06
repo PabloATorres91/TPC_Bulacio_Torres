@@ -156,9 +156,8 @@ namespace Negocio
                 int newIDProfile = user.UserIDProfile;
                 DateTime newInitDate = DateTime.Now;
                 string newPass = "1234";//Pass por default
-
-                string values = "VALUES('" + newName + "', '" + newEmail + "', '" + newIDProfile + "', '" + newInitDate + "', '" + newPass + "')";
-                string query = "INSERT INTO Users (UsersName, UsersEmail, IDProfiles, UsersDate, UsersPass) " + values;
+                string values = "VALUES('" + newName + "', '" + newEmail + "', '" + newIDProfile + "', '" + newInitDate + "', '" + newPass + "', '" + true + "')";
+                string query = "INSERT INTO Users (UsersName, UsersEmail, IDProfiles, UsersDate, UsersPass, UserState) " + values;
                 connection.setQuery(query);
                 connection.executeAction();
             }
