@@ -117,7 +117,7 @@ namespace TPC_Bulacio_Torres
                     user.UserIDProfile = Convert.ToInt32(ddlProfile.SelectedValue);
                     user.UserID = Convert.ToInt32(txtUserID.Text);
                     //Hasta aca esta todo bien. Falta avanzar en la ejecucion de la consulta. Tomar de referencia el Solution_TP2 (FormAgregar)
-                    userNegocio.modifyUser(user);
+                    userNegocio.modifyUser(user);                    
                 }
                 else if(mode == "D")
                 {
@@ -130,7 +130,8 @@ namespace TPC_Bulacio_Torres
                     user.UserEmail = txtEmail.Text;
                     user.UserIDProfile = Convert.ToInt32(ddlProfile.SelectedValue);
                     userNegocio.addUser(user);
-                }
+                }                
+                
             }
             catch(Exception ex)
             {

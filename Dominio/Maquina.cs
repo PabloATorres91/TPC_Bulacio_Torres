@@ -13,6 +13,7 @@ namespace Dominio
         public string MachineName { get; set; }
         public string MachineModel { get; set; }
         public string MachineSerialNumber { get; set; }
+        public bool MachineStatus { get; set; }
 
     }
 }

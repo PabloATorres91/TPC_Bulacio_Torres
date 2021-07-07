@@ -132,17 +132,17 @@ SET IDENTITY_INSERT [dbo].[ProductionLine] OFF
 GO
 SET IDENTITY_INSERT [dbo].[Machine] ON
 GO
-INSERT [dbo].[Machine]([IDMachine], [IDProductionLine], [MachineName], [MachineModel], [MachineSerialNumber]) VALUES (1, 1, N'Extrusora 1', N'850TN', N'RS-0250')
+INSERT [dbo].[Machine]([IDMachine], [IDProductionLine], [MachineName], [MachineModel], [MachineSerialNumber], [MachineStatus]) VALUES (1, 1, N'Extrusora 1', N'850TN', N'RS-0250',1)
 GO
-INSERT [dbo].[Machine]([IDMachine], [IDProductionLine], [MachineName], [MachineModel], [MachineSerialNumber]) VALUES (2, 2, N'Extrusora 2', N'750TN', N'RS-0150')
+INSERT [dbo].[Machine]([IDMachine], [IDProductionLine], [MachineName], [MachineModel], [MachineSerialNumber], [MachineStatus]) VALUES (2, 2, N'Extrusora 2', N'750TN', N'RS-0150',1)
 GO
-INSERT [dbo].[Machine]([IDMachine], [IDProductionLine], [MachineName], [MachineModel], [MachineSerialNumber]) VALUES (3, 1, N'Apliladora 1', N'AP-100', N'AR-0250')
+INSERT [dbo].[Machine]([IDMachine], [IDProductionLine], [MachineName], [MachineModel], [MachineSerialNumber], [MachineStatus]) VALUES (3, 1, N'Apliladora 1', N'AP-100', N'AR-0250',1)
 GO
-INSERT [dbo].[Machine]([IDMachine], [IDProductionLine], [MachineName], [MachineModel], [MachineSerialNumber]) VALUES (4, 2, N'Apiladora 2', N'AP-100', N'AR-0350')
+INSERT [dbo].[Machine]([IDMachine], [IDProductionLine], [MachineName], [MachineModel], [MachineSerialNumber], [MachineStatus]) VALUES (4, 2, N'Apiladora 2', N'AP-100', N'AR-0350',1)
 GO
-INSERT [dbo].[Machine]([IDMachine], [IDProductionLine], [MachineName], [MachineModel], [MachineSerialNumber]) VALUES (5, 1, N'Desapiladora 1', N'DES-50', N'DRA-0150')
+INSERT [dbo].[Machine]([IDMachine], [IDProductionLine], [MachineName], [MachineModel], [MachineSerialNumber], [MachineStatus]) VALUES (5, 1, N'Desapiladora 1', N'DES-50', N'DRA-0150',1)
 GO
-INSERT [dbo].[Machine]([IDMachine], [IDProductionLine], [MachineName], [MachineModel], [MachineSerialNumber]) VALUES (6, 2, N'Desapiladora 2', N'DES-75', N'DRA-0050')
+INSERT [dbo].[Machine]([IDMachine], [IDProductionLine], [MachineName], [MachineModel], [MachineSerialNumber], [MachineStatus]) VALUES (6, 2, N'Desapiladora 2', N'DES-75', N'DRA-0050',1)
 GO
 SET IDENTITY_INSERT [dbo].[Machine] OFF
 GO

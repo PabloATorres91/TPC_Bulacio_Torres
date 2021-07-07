@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Dominio;
 
+
 namespace Negocio
 {
      public class MaquinaNegocio
@@ -22,13 +23,20 @@ namespace Negocio
                 while (connection.DataReader.Read())
                 {
                     Maquina auxMachine = new Maquina();
-                    auxMachine.IDMachine = (int)connection.DataReader["IDMachine"];
-                    auxMachine.IDProductionLine = (int)connection.DataReader["IDProductionLine"];
-                    auxMachine.MachineName = (string)connection.DataReader["MachineName"];
-                    auxMachine.MachineModel = (string)connection.DataReader["MachineModel"];
-                    auxMachine.MachineSerialNumber = (string)connection.DataReader["MachineSerialNumber"];
 
-                    machinesList.Add(auxMachine);
+                    auxMachine.MachineStatus = (bool)connection.DataReader["MachineStatus"];
+                    
+                    if(auxMachine.MachineStatus == true)
+                    {
+                        auxMachine.IDMachine = (int)connection.DataReader["IDMachine"];
+                        auxMachine.IDProductionLine = (int)connection.DataReader["IDProductionLine"];
+                        auxMachine.MachineName = (string)connection.DataReader["MachineName"];
+                        auxMachine.MachineModel = (string)connection.DataReader["MachineModel"];
+                        auxMachine.MachineSerialNumber = (string)connection.DataReader["MachineSerialNumber"];
+
+                        machinesList.Add(auxMachine);
+                    }
+                    
                 }
                 return machinesList;
 
@@ -62,10 +70,88 @@ namespace Negocio
                     auxmachine.MachineName = (string)connection.DataReader["MachineName"];
                     auxmachine.MachineModel = (string)connection.DataReader["MachineModel"];
                     auxmachine.MachineSerialNumber = (string)connection.DataReader["MachineSerialNumber"];
+                    auxmachine.MachineStatus = (bool)connection.DataReader["MachineStatus"];
 
                 }
                 return auxmachine;
 
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                connection.closeConnection();
+            }
+        }
+        public void modifyMachine(Maquina maquina)
+        {
+            connection = new AccesoDatos();
+
+            try
+            {
+                string query = "UPDATE Machine SET IDProductionLine = @idproductionline, MachineName = @machinename, MachineModel = @machinemodel, MachineSerialNumber = @machineserialnumber WHERE IDMachine = @idmachine";
+                connection.setQuery(query);
+                connection.setQueryParams("@idmachine", maquina.IDMachine);
+                connection.setQueryParams("@idproductionline", maquina.IDProductionLine);
+                connection.setQueryParams("@machinename", maquina.MachineName);
+                connection.setQueryParams("@machinemodel", maquina.MachineModel);
+                connection.setQueryParams("@machineserialnumber", maquina.MachineSerialNumber);
+                connection.executeAction();
+                                
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                connection.closeConnection();
+            }
+            
+            
+        }
+
+        public void addMachine(Maquina maquina)
+        {
+            connection = new AccesoDatos();
+
+            try
+            {
+                int newIdProductionLine = maquina.IDProductionLine;
+                string newMachineName = maquina.MachineName;
+                string newMachineModel = maquina.MachineModel;
+                string newMachineSerialNumber = maquina.MachineSerialNumber;
+                string values = "VALUES ('"+newIdProductionLine+"', '"+newMachineName+"', '"+newMachineModel+"', '"+newMachineSerialNumber+"')";
+                string query = "INSERT INTO Machine(IDProductionLine, MachineName, MachineModel, MachineSerialNumber)" + values;
+                connection.setQuery(query);
+                connection.executeAction();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                connection.closeConnection();
+            }
+        }
+
+        public void deleteMachine(Maquina maquina)
+        {
+            connection = new AccesoDatos();
+
+            try
+            {
+                string query = "DELETE FROM Machine WHERE IDMachine = @idmachine";
+                connection.setQuery(query);
+                connection.setQueryParams("@idmachine", maquina.IDMachine);
+                connection.executeAction();
 
             }
             catch (Exception ex)

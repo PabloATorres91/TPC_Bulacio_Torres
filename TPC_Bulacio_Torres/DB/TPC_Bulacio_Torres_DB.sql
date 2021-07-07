@@ -73,7 +73,8 @@ CREATE TABLE Machine(
 	IDProductionLine int null foreign key references ProductionLine(IDProductionLine),
 	MachineName varchar (100) not null,
 	MachineModel varchar (100) not null,
-	MachineSerialNumber varchar (50) not null unique
+	MachineSerialNumber varchar (50) not null unique,
+	MachineStatus bit not null default (1)
 )
 GO
 CREATE TABLE Part(
@@ -120,6 +121,23 @@ CREATE TABLE StopLog(
 	StopLogFinish datetime not null,
 	StopLogObservation varchar (1000) null
 )
+
+GO
+CREATE TRIGGER TR_DELETE_MACHINE ON Machine
+INSTEAD OF DELETE
+AS
+BEGIN
+	UPDATE Machine SET MachineStatus = 0 WHERE IDMachine IN (SELECT IDMachine FROM deleted)
+END
+
+
+GO
+CREATE TRIGGER TR_DELETE_USERS ON Users
+INSTEAD OF DELETE
+AS
+BEGIN
+	UPDATE Users SET UserState = 0 WHERE IDUsers IN (SELECT IDUsers FROM deleted)
+END
 
 GO
 ALTER TABLE Logins add constraint CHK_LoginsDateIn check (LoginsDateIn <= GETDATE())
