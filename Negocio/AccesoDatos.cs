@@ -71,5 +71,12 @@ namespace Negocio
             connection.Open();
             command.ExecuteNonQuery();
         }
+
+        internal int executeActionWithResult()
+        {
+            command.Connection = connection;
+            connection.Open();
+            return command.ExecuteNonQuery();
+        }
     }
 }

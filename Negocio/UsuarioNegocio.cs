@@ -51,7 +51,7 @@ namespace Negocio
 
             try
             {
-                connection.setQuery("SELECT * FROM Users");
+                connection.setQuery("SELECT * FROM Users WHERE UserState = 1");
                 connection.executeReader();
                 
                 while(connection.DataReader.Read())
@@ -160,6 +160,27 @@ namespace Negocio
                 string query = "INSERT INTO Users (UsersName, UsersEmail, IDProfiles, UsersDate, UsersPass, UserState) " + values;
                 connection.setQuery(query);
                 connection.executeAction();
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.closeConnection();
+            }
+        }
+
+        public int deleteUser (Usuario userToDelete)
+        {
+            connection = new AccesoDatos();
+
+            try
+            {
+                string query = "DELETE FROM Users WHERE IDUsers ='" + userToDelete.UserID + "'";
+
+                connection.setQuery(query);
+                return connection.executeActionWithResult();
             }
             catch(Exception ex)
             {

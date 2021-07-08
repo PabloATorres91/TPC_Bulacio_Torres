@@ -109,19 +109,34 @@ namespace TPC_Bulacio_Torres
             try
             {
                 string mode = Request.QueryString["Mode"];
-                if(mode == "M")
+                if (mode == "M")
                 {
                     //Ejecutamos consulta para modificar registro
                     user.UserName = txtName.Text;
                     user.UserEmail = txtEmail.Text;
                     user.UserIDProfile = Convert.ToInt32(ddlProfile.SelectedValue);
                     user.UserID = Convert.ToInt32(txtUserID.Text);
-                    //Hasta aca esta todo bien. Falta avanzar en la ejecucion de la consulta. Tomar de referencia el Solution_TP2 (FormAgregar)
-                    userNegocio.modifyUser(user);                    
+                    userNegocio.modifyUser(user);
                 }
-                else if(mode == "D")
+                else if (mode == "D")
                 {
-                    //Ejecutamos consulta para ¿eliminar? registro
+                    //Ejecutamos consulta para eliminar registro
+                    user.UserID = Convert.ToInt32(txtUserID.Text);
+
+                    if (userNegocio.deleteUser(user) != 0)
+                    {
+                        Response.Write("<script language=javascript>");
+                        Response.Write("alert('Usuario Eliminado')");
+                        Response.Write("</script>");
+                    }
+                    else
+                    {
+                        Response.Write("<script language=javascript>");
+                        Response.Write("alert('El usuario no existe')");
+                        Response.Write("</script>");
+                    }
+
+                    btnAceptar.Attributes["onclick"] = "return Confirmacion();";
                 }
                 else
                 {

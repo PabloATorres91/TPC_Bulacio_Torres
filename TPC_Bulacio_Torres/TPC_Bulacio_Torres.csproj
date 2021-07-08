@@ -105,6 +105,7 @@
   <ItemGroup>
     <Content Include="ABMMaquina.aspx" />
     <Content Include="ABMUsuario.aspx" />
+    <Content Include="ABMStopCodes.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -114,6 +115,7 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="FormMaquina.aspx" />
+    <Content Include="FormStopCode.aspx" />
     <Content Include="FormUsuario.aspx" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -176,6 +178,13 @@
     <Compile Include="ABMUsuario.aspx.designer.cs">
       <DependentUpon>ABMUsuario.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ABMStopCodes.aspx.cs">
+      <DependentUpon>ABMStopCodes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ABMStopCodes.aspx.designer.cs">
+      <DependentUpon>ABMStopCodes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="FormMaquina.aspx.cs">
@@ -184,6 +193,13 @@
     </Compile>
     <Compile Include="FormMaquina.aspx.designer.cs">
       <DependentUpon>FormMaquina.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormStopCode.aspx.cs">
+      <DependentUpon>FormStopCode.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormStopCode.aspx.designer.cs">
+      <DependentUpon>FormStopCode.aspx</DependentUpon>
     </Compile>
     <Compile Include="FormUsuario.aspx.cs">
       <DependentUpon>FormUsuario.aspx</DependentUpon>
