@@ -157,14 +157,14 @@ namespace TPC_Bulacio_Torres
                 else
                 {
                     //Agregamos nuevo registro
-                    maquina.IDMachine = Convert.ToInt32(txtIDMachine.Text);
+                    //maquina.IDMachine = Convert.ToInt32(txtIDMachine.Text);
                     maquina.MachineName = txtMachineName.Text;
                     maquina.MachineModel = txtMachineModel.Text;
                     maquina.MachineSerialNumber = txtMachineSerialNumber.Text;
                     maquina.IDProductionLine = Convert.ToInt32(ddlProductionLine.SelectedValue);
                     maquinaNegocio.addMachine(maquina);
                 }
-                Response.Redirect("ABMUsuario.aspx");
+                Response.Redirect("ABMMaquina.aspx",false);
             }
             catch (Exception ex)
             {
