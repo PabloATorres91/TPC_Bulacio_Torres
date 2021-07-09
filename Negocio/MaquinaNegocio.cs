@@ -70,7 +70,7 @@ namespace Negocio
             return dataSet;
         }
 
-        public Maquina getfullMachine(string idMachine)
+        public Maquina getFullMachine(string idMachine)
         {
             Maquina auxmachine = new Maquina();
             connection = new AccesoDatos();

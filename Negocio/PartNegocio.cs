@@ -71,14 +71,18 @@ namespace Negocio
                 while (connection.DataReader.Read())
                 {
                     Part auxPart = new Part();
-
-                    auxPart.IDPart = (int)connection.DataReader["IDPart"];
-                    auxPart.IDMachine = (int)connection.DataReader["IDMachine"];
-                    auxPart.PartName = (string)connection.DataReader["PartName"];
-                    auxPart.PartDescription = (string)connection.DataReader["PartDescription"].ToString();
                     auxPart.PartStatus = (bool)connection.DataReader["PartStatus"];
 
-                    partsList.Add(auxPart);
+                    if(auxPart.PartStatus == true)
+                    {
+                        auxPart.IDPart = (int)connection.DataReader["IDPart"];
+                        auxPart.IDMachine = (int)connection.DataReader["IDMachine"];
+                        auxPart.PartName = (string)connection.DataReader["PartName"];
+                        auxPart.PartDescription = (string)connection.DataReader["PartDescription"].ToString();
+                        auxPart.PartStatus = (bool)connection.DataReader["PartStatus"];
+
+                        partsList.Add(auxPart);
+                    }                   
                 }
                 return partsList;
             }
@@ -97,13 +101,12 @@ namespace Negocio
             connection = new AccesoDatos();
             try
             {
-                string query = "UPDATE Part SET IDPart = @idpart, IDMachine = @idmachine, PartName = @partname, PartDescription = @partdescription, PartStatus = @partstatus";
+                string query = "UPDATE Part SET IDMachine = @idmachine, PartName = @partname, PartDescription = @partdescription WHERE IDPart = @idpart";
                 connection.setQuery(query);
                 connection.setQueryParams("@idpart", part.IDPart);
                 connection.setQueryParams("@idmachine", part.IDMachine);
                 connection.setQueryParams("@partname", part.PartName);
-                connection.setQueryParams("@partdescription", part.PartDescription);
-                connection.setQueryParams("@partstatus", part.PartStatus);
+                connection.setQueryParams("@partdescription", part.PartDescription);                
                 connection.executeAction();
             }
             catch (Exception ex)

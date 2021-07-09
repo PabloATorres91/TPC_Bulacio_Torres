@@ -88,13 +88,9 @@ namespace TPC_Bulacio_Torres
         {
             maquinaNegocio = new MaquinaNegocio();
 
-            ddlMachine.DataSource = maquinaNegocio.getMaquina();
+            ddlMachine.DataSource = maquinaNegocio.getMaquina();            
             ddlMachine.DataTextField = "MachineName";
-            //ddlMachine.DataTextField = "MachineModel";
-            //ddlMachine.DataValueField = "MachineSerialNumber";
-            ddlMachine.DataValueField = "IDMachine";
-            ddlMachine.DataValueField = "IDProductionLine";
-            
+            ddlMachine.DataValueField = "IDMachine";           
             ddlMachine.DataBind();
 
             if (Convert.ToBoolean(part.IDMachine))
@@ -118,16 +114,16 @@ namespace TPC_Bulacio_Torres
                 string mode = Request.QueryString["Mode"];
                 if(mode == "M")
                 {
-                    part.IDPart = Convert.ToInt32(txtIDPart);
-                    part.IDMachine = Convert.ToInt32(txtIDMachine);
+                    part.IDPart = Convert.ToInt32(txtIDPart.Text);
+                    part.IDMachine = Convert.ToInt32(ddlMachine.SelectedValue);
                     part.PartName = txtPartName.Text;
-                    part.PartDescription = txtPartDescription.Text;
+                    part.PartDescription = txtPartDescription.Text;                 
                     partNegocio.modifyPart(part);
 
                 }else if (mode == "D")
                 {
                     //Se elimina el registro con baja logica aplicando trigger
-                    part.IDPart = Convert.ToInt32(txtIDPart);
+                    part.IDPart = Convert.ToInt32(txtIDPart.Text);
                     partNegocio.deletePart(part);
                 }
                 else
