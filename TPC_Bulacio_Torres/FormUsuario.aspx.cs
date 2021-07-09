@@ -145,10 +145,11 @@ namespace TPC_Bulacio_Torres
                     user.UserEmail = txtEmail.Text;
                     user.UserIDProfile = Convert.ToInt32(ddlProfile.SelectedValue);
                     userNegocio.addUser(user);
-                }                
-                
+                }
+                Response.Redirect("ABMUsuario.aspx", false);
+
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 //Analizar si hay que agregar un form de error. Por lo pronto reenviamos el error a Index.aspx
                 Session.Add("Error", ex.ToString());

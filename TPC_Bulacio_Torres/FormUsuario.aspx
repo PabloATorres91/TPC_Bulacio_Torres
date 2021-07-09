@@ -1,18 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FormUsuario.aspx.cs" Inherits="TPC_Bulacio_Torres.FormUsuario" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-
-    <script type="text/javascript">
-        function Confirmacion() {
-            var seleccion = confirm("acepta el mensaje ?");
-            if (seleccion)
-                alert("se acepto el mensaje");
-            else
-                alert("NO se acepto el mensaje");
-            //usado para que no haga postback el boton de asp.net cuando 
-            //no se acepte el confirm
-            return seleccion;
-        }
-    </script>
     <form runat="server">
         <div class="form-row">
             <div class="form-group col-md-6">
@@ -69,6 +56,6 @@
           </label>
         </div>
       </div>--%>
-        <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" class="btn btn-primary" OnClick="btnAceptar_Click" OnClientClick="return Confirmacion();"/>
+        <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" class="btn btn-primary" OnClick="btnAceptar_Click" OnClientClick="return confirm('Estas seguro?');"/>
     </form>
 </asp:Content>
