@@ -60,7 +60,7 @@ namespace Negocio
         {
             DataSet dataSet = new DataSet();
 
-            string filter = "SELECT IDMachine, IDProductionLine, MachineName, MachineModel, MachineSerialNumber, MachineStatus FROM Machine";
+            string filter = "SELECT IDMachine, IDProductionLine, MachineName, MachineModel, MachineSerialNumber, MachineStatus FROM Machine WHERE MachineStatus= 1";
             connection = new AccesoDatos();
             connection.setQuery(filter);
             SqlDataAdapter dataAdapter = connection.executeDataReader();

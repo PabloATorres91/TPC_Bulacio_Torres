@@ -46,6 +46,11 @@
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Sección Operador
+            </div>
+
             <!-- Nav Item - LINK 1 -->
             <li class="nav-item">
                 <a class="nav-link" href="LINK 1">
@@ -57,8 +62,8 @@
             <hr class="sidebar-divider">
 
             <!-- Heading -->
-         <div class="sidebar-heading">
-                Interface
+            <div class="sidebar-heading">
+                Sección Jefe de Producción
             </div>
 
             <!-- Nav Item - LINK 2 Collapse Menu -->
@@ -84,7 +89,12 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-              <!-- Nav Item - ABMPart -->
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Sección Administrador
+            </div>
+
+            <!-- Nav Item - ABMPart -->
             <li class="nav-item">
                 <a class="nav-link" href="ABMPart.aspx">
                     <i class="fas fa-fw fa-chart-area"></i>
@@ -108,7 +118,7 @@
             <!-- Nav Item - ABMMaquina-->
             <li class="nav-item">
                 <a class="nav-link" href="ABMMaquina.aspx">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="fas fa-fw fa-chart-area"></i>
                     <span>ABM Maquinas</span></a>
             </li>
 
