@@ -6,11 +6,7 @@
                 <label>Líneas de Producción</label>
                 <asp:DropDownList ID="ddlProductionLine" runat="server"></asp:DropDownList>
             </div>
-             <%--<div class="form-group col-md-6">
-                <label>Partes</label>
-                <asp:DropDownList ID="ddlPart" runat="server"></asp:DropDownList>
-            </div>--%>
-
+            
         </div>
         
         <div class="form-group">

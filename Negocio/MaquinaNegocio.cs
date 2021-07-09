@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dominio;
+using Negocio;
+using System.Data;
+using System.Data.SqlClient;
 
 
 namespace Negocio
@@ -52,7 +55,22 @@ namespace Negocio
             }
 
         }
-        public Maquina getFullMachine(string idMachine)
+
+        public DataSet getMaquina()
+        {
+            DataSet dataSet = new DataSet();
+
+            string filter = "SELECT IDMachine, IDProductionLine, MachineName, MachineModel, MachineSerialNumber, MachineStatus FROM Machine";
+            connection = new AccesoDatos();
+            connection.setQuery(filter);
+            SqlDataAdapter dataAdapter = connection.executeDataReader();
+
+            dataAdapter.Fill(dataSet);
+
+            return dataSet;
+        }
+
+        public Maquina getfullMachine(string idMachine)
         {
             Maquina auxmachine = new Maquina();
             connection = new AccesoDatos();
@@ -87,6 +105,7 @@ namespace Negocio
                 connection.closeConnection();
             }
         }
+
         public void modifyMachine(Maquina maquina)
         {
             connection = new AccesoDatos();
@@ -116,7 +135,7 @@ namespace Negocio
             
         }
 
-        public void addMachine(Maquina maquina)
+        public void addMachine(Maquina maquina) 
         {
             connection = new AccesoDatos();
 

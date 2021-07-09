@@ -13,7 +13,6 @@ namespace TPC_Bulacio_Torres
     {
         MaquinaNegocio maquinaNegocio;
         Maquina maquina;
-        //PartNegocio partNegocio;
         ProductionLineNegocio productionLineNegocio;
         
         
@@ -89,28 +88,7 @@ namespace TPC_Bulacio_Torres
                 }
             }
         }
-
-        //private void fillAndSetddlPart()
-        //{
-        //    partNegocio = new PartNegocio();
-
-        //    ddlPart.DataSource = partNegocio.getPart();
-        //    ddlPart.DataTextField = "PartName";
-        //    //ddlPart.DataTextField = "PartDescription";
-        //    //ddlPart.DataValueField = "IDPart";
-        //    //ddlPart.DataValueField = "IDMachine";
-        //    ddlPart.DataBind();
-
-        //    //if (Convert.ToBoolean(maquina.IDMachine))
-        //    //{
-        //    //    ddlPart.SelectedValue = maquina.IDMachine.ToString();
-        //    //}
-        //    //else
-        //    //{
-        //    //    ddlPart.SelectedValue = "0";
-        //    //}
-
-        //}
+          
 
         private void fillAndSetddlProductionLine()
         {
@@ -157,7 +135,6 @@ namespace TPC_Bulacio_Torres
                 else
                 {
                     //Agregamos nuevo registro
-                    //maquina.IDMachine = Convert.ToInt32(txtIDMachine.Text);
                     maquina.MachineName = txtMachineName.Text;
                     maquina.MachineModel = txtMachineModel.Text;
                     maquina.MachineSerialNumber = txtMachineSerialNumber.Text;

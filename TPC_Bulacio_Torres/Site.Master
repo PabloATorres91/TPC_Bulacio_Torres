@@ -84,14 +84,11 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-            <!-- Nav Item - LINK 4 Collapse Menu -->
+              <!-- Nav Item - ABMPart -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="LINK 4" data-target="#collapsePages"
-                    aria-expanded="true" aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>LINK 4</span>
-                </a>
-        
+                <a class="nav-link" href="ABMPart.aspx">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>ABM Partes de Máquina</span></a>
             </li>
 
             <!-- Nav Item - ABMStopCode -->
