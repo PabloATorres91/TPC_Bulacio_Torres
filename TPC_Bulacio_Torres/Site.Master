@@ -241,7 +241,7 @@
     </form>
     <script>
         $(document).ready(function () {
-            $('#usersTable').DataTable({
+            $('#mainTable').DataTable({
                 "language": {
                     search: "Buscar"
                 }

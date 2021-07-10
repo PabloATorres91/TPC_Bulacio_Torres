@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     
     <div class="row justify-content">
-        <table id="machinesTable" class="display table table-light table-hover">
+        <table id="mainTable" class="display table table-light table-hover">
            <thead class="table-dark">
                <tr>
                    <th scope="col">MÁQUINA</th>

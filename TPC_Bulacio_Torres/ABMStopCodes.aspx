@@ -2,7 +2,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="row justify-content">
-            <table id="usersTable" class="display table table-light table-hover">
+            <table id="mainTable" class="display table table-light table-hover">
                 <thead class="table-dark">
                     <tr>
                         <th scope="col">Código parada</th>
