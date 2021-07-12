@@ -44,6 +44,32 @@ namespace Negocio
             }
         }
 
+        public bool validateUser(string userName)
+        {
+            connection = new AccesoDatos();
+            try
+            {
+                connection.setQuery("SELECT UsersName FROM Users WHERE UsersName='" + userName + "'");
+                connection.executeReader();
+
+                bool ret = true;
+
+                while(connection.DataReader.Read())
+                {
+                    ret = false;
+                }
+                return ret;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.closeConnection();
+            }
+        }
+
         public List<Usuario> listUsers()
         {
             List<Usuario> list = new List<Usuario>();

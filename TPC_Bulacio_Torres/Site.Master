@@ -190,10 +190,12 @@
                 <!-- Begin Page Content -->
                 
                 <!-- /.container-fluid -->
-                <div class="container body-content">
-                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
-                    </asp:ContentPlaceHolder>
-                </div>
+                <form id="form1" runat="server">
+                    <div class="container body-content">
+                        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+                </form>
             </div>
             <!-- End of Main Content -->
 

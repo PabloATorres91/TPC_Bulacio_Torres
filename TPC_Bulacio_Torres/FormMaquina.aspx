@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FormMaquina.aspx.cs" Inherits="TPC_Bulacio_Torres.FormMaquina" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <form runat="server">
+    <%--<form runat="server">--%>
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label>Líneas de Producción</label>
@@ -32,5 +32,5 @@
 
         <asp:Button ID="btnAceptarMaquina" runat="server" Text="Aceptar" class="btn btn-primary" OnClick="btnAceptarMaquina_Click" />
 
-    </form>
+    <%--</form>--%>
 </asp:Content>

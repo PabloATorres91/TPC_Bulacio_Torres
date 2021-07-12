@@ -126,8 +126,10 @@ namespace TPC_Bulacio_Torres
                     if (userNegocio.deleteUser(user) != 0)
                     {
                         Response.Write("<script language=javascript>");
-                        Response.Write("alert('Usuario Eliminado')");
+                        Response.Write("confirm('Usuario Eliminado');");
                         Response.Write("</script>");
+                        //string script = @"<script type='text/javascript>
+                        //                var select= alert("
                     }
                     else
                     {
@@ -135,8 +137,6 @@ namespace TPC_Bulacio_Torres
                         Response.Write("alert('El usuario no existe')");
                         Response.Write("</script>");
                     }
-
-                    btnAceptar.Attributes["onclick"] = "return Confirmacion();";
                 }
                 else
                 {
@@ -144,10 +144,16 @@ namespace TPC_Bulacio_Torres
                     user.UserName = txtName.Text;
                     user.UserEmail = txtEmail.Text;
                     user.UserIDProfile = Convert.ToInt32(ddlProfile.SelectedValue);
-                    userNegocio.addUser(user);
+                    if(userNegocio.validateUser(user.UserName) != false) //si un usuario ya existe, se devuelve false
+                    {
+                        userNegocio.addUser(user);
+                        Response.Redirect("ABMUsuario.aspx", false);
+                    }
+                    else
+                    {
+                        Response.Write("<script>alert('El Nombre de usuario ya ha sido utilizado. Por favor utilizar otro nombre');</script>");
+                    }
                 }
-                Response.Redirect("ABMUsuario.aspx", false);
-
             }
             catch (Exception ex)
             {

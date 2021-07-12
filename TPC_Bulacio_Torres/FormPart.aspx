@@ -1,6 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FormPart.aspx.cs" Inherits="TPC_Bulacio_Torres.FormPart" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-<form runat="server">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label>Máquinas</label>
@@ -29,5 +28,4 @@
             <asp:TextBox ID="txtPartStatus" runat="server" ToolTip="PartStatus" MaxLength="100"></asp:TextBox>
         </div>
     <asp:Button ID="btnAceptarParte" runat="server" Text="Aceptar" class="btn btn-primary" OnClick="btnAceptarParte_Click" />
-</form>
 </asp:Content>
