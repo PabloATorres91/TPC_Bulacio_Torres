@@ -116,7 +116,18 @@ namespace TPC_Bulacio_Torres
                     user.UserEmail = txtEmail.Text;
                     user.UserIDProfile = Convert.ToInt32(ddlProfile.SelectedValue);
                     user.UserID = Convert.ToInt32(txtUserID.Text);
-                    userNegocio.modifyUser(user);
+                    if(userNegocio.modifyUser(user)!=0)
+                    {
+                        string script = @"alert('Registro modificado satisfactoriamente');
+                        window.location.href='ABMUsuario.aspx';";
+                        ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, true);
+                    }
+                    else
+                    {
+                        Response.Write("<script language=javascript>");
+                        Response.Write("alert('El usuario no ha sido modificado.')");
+                        Response.Write("</script>");
+                    }
                 }
                 else if (mode == "D")
                 {
@@ -125,11 +136,9 @@ namespace TPC_Bulacio_Torres
 
                     if (userNegocio.deleteUser(user) != 0)
                     {
-                        Response.Write("<script language=javascript>");
-                        Response.Write("confirm('Usuario Eliminado');");
-                        Response.Write("</script>");
-                        //string script = @"<script type='text/javascript>
-                        //                var select= alert("
+                        string script = @"alert('Registro eliminado satisfactoriamente');
+                        window.location.href='ABMUsuario.aspx';";
+                        ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, true);
                     }
                     else
                     {
@@ -146,8 +155,19 @@ namespace TPC_Bulacio_Torres
                     user.UserIDProfile = Convert.ToInt32(ddlProfile.SelectedValue);
                     if(userNegocio.validateUser(user.UserName) != false) //si un usuario ya existe, se devuelve false
                     {
-                        userNegocio.addUser(user);
-                        Response.Redirect("ABMUsuario.aspx", false);
+                        if(userNegocio.addUser(user) != 0)
+                        {
+                            string script = @"alert('Registro grabado satisfactoriamente');
+                            window.location.href='ABMUsuario.aspx';";
+                            ScriptManager.RegisterStartupScript(this, typeof(Page), "alerta", script, true);
+                        }
+                        else
+                        {
+                            Response.Write("<script language=javascript>");
+                            Response.Write("alert('El usuario no se ha grabado')");
+                            Response.Write("</script>");
+                        }
+                        
                     }
                     else
                     {

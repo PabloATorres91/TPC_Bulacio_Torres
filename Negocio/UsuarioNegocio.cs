@@ -146,7 +146,7 @@ namespace Negocio
 
         }
 
-        public void modifyUser(Usuario user)
+        public int modifyUser(Usuario user)
         {
             connection = new AccesoDatos();
 
@@ -160,7 +160,8 @@ namespace Negocio
                 connection.setQueryParams("@useremail", user.UserEmail);
                 connection.setQueryParams("@userid", user.UserID);
 
-                connection.executeAction();
+                //connection.executeAction();
+                return connection.executeActionWithResult();
             }
             catch(Exception ex)
             {
@@ -172,7 +173,7 @@ namespace Negocio
             }
         }
 
-        public void addUser(Usuario user)
+        public int addUser(Usuario user)
         {
             connection = new AccesoDatos();
             try
@@ -180,12 +181,13 @@ namespace Negocio
                 string newName = user.UserName;
                 string newEmail = user.UserEmail;
                 int newIDProfile = user.UserIDProfile;
-                DateTime newInitDate = DateTime.Now;
+                string newInitDate = DateTime.Now.ToShortDateString();
                 string newPass = "1234";//Pass por default
-                string values = "VALUES('" + newName + "', '" + newEmail + "', '" + newIDProfile + "', '" + newInitDate + "', '" + newPass + "', '" + true + "')";
+                string values = "VALUES('" + newName + "', '" + newEmail + "', '" + newIDProfile + "', " + newInitDate + ", '" + newPass + "', '" + true + "')";
                 string query = "INSERT INTO Users (UsersName, UsersEmail, IDProfiles, UsersDate, UsersPass, UserState) " + values;
                 connection.setQuery(query);
-                connection.executeAction();
+                //connection.executeAction();
+                return connection.executeActionWithResult();
             }
             catch(Exception ex)
             {

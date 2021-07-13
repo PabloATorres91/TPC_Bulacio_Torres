@@ -1,8 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FormUsuario.aspx.cs" Inherits="TPC_Bulacio_Torres.FormUsuario" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-
-        <asp:UpdatePanel runat="server">
+    <asp:UpdatePanel runat="server">
             <ContentTemplate>
                 <%--<form runat="server">--%>
                     <div class="form-row">
