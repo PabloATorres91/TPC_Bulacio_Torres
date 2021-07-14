@@ -53,9 +53,9 @@
 
             <!-- Nav Item - LINK 1 -->
             <li class="nav-item">
-                <a class="nav-link" href="LINK 1">
+                <a class="nav-link" href="FormOperador">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>LINK 1</span></a>
+                    <span>CARGAS DIARIAS</span></a>
             </li>
 
             <!-- Divider -->

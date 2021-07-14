@@ -12,8 +12,7 @@ namespace TPC_Bulacio_Torres
     public partial class FormMaquina : System.Web.UI.Page
     {
         MaquinaNegocio maquinaNegocio;
-        Maquina maquina;
-        ProductionLineNegocio productionLineNegocio;
+        Maquina maquina;        
         
         
         protected void Page_Load(object sender, EventArgs e)
@@ -90,9 +89,9 @@ namespace TPC_Bulacio_Torres
         }
           
 
-        private void fillAndSetddlProductionLine()
+        public void fillAndSetddlProductionLine()
         {
-            productionLineNegocio = new ProductionLineNegocio();
+            ProductionLineNegocio productionLineNegocio = new ProductionLineNegocio();
 
             ddlProductionLine.DataSource = productionLineNegocio.getProductionLine();
             ddlProductionLine.DataTextField = "ProductionLineName";

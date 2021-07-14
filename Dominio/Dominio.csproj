@@ -47,6 +47,8 @@
     <Compile Include="Perfil.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StopCode.cs" />
+    <Compile Include="StopLog.cs" />
+    <Compile Include="Turn.cs" />
     <Compile Include="Usuario.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

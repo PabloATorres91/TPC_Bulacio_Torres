@@ -11,9 +11,7 @@ namespace TPC_Bulacio_Torres
 {
     public partial class FormPart : System.Web.UI.Page
     {
-        PartNegocio partNegocio;
-        MaquinaNegocio maquinaNegocio;
-        Maquina maquina;
+        PartNegocio partNegocio;        
         Part part;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -84,9 +82,9 @@ namespace TPC_Bulacio_Torres
             }
         }
 
-        private void fillAndSetddlMachine()
+        public void fillAndSetddlMachine()
         {
-            maquinaNegocio = new MaquinaNegocio();
+            MaquinaNegocio maquinaNegocio = new MaquinaNegocio();
 
             ddlMachine.DataSource = maquinaNegocio.getMaquina();            
             ddlMachine.DataTextField = "MachineName";

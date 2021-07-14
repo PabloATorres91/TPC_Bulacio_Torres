@@ -48,6 +48,8 @@
     <Compile Include="ProductionLineNegocio.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StopCodeNegocio.cs" />
+    <Compile Include="StopLogNegocio.cs" />
+    <Compile Include="TurnNegocio.cs" />
     <Compile Include="UsuarioNegocio.cs" />
   </ItemGroup>
   <ItemGroup>
