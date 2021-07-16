@@ -12,18 +12,20 @@
                            <th scope="auto">FECHA Y HORA INICIO</th>
                            <th scope="auto">FECHA Y HORA FIN</th>
                            <th scope="auto">OBSERVACIONES</th>
+                           <th scope="auto"></th>
+                           <th scope="auto"></th>
                        </tr>
                    </thead>
                    <tbody>
                             <%foreach (Dominio.StopLog stopLog in stopLogList) 
                                 { %>
                                    <tr>
-                                       <th><% =stopLog.IDStopCode %> </th>
-                                       <th><% =stopLog.StopLogBegin %></th>
-                                       <th><% =stopLog.StopLogFinish %></th>
-                                       <th><% =stopLog.StopLogObservation %></th>
-                                       <%--<th> <a href="FormMaquina.aspx?IDMachine=<%=maquina.IDMachine %>&Mode=M">Modificar</a> </th>
-                                       <th> <a href="FormMaquina.aspx?IDMachine=<%=maquina.IDMachine %>&Mode=D">Eliminar</a> </th>--%>
+                                       <th><% = stopLog.IDStopCode %> </th>
+                                       <th><% = stopLog.StopLogBegin %></th>
+                                       <th><% = stopLog.StopLogFinish %></th>
+                                       <th><% = stopLog.StopLogObservation %></th>
+                                       <th> <a href="FormStopLog.aspx?IDStopLog=<% = stopLog.IDStopLog %>&Mode=M">Modificar</a> </th>
+                                       <th> <a href="FormStopLog.aspx?IDStopLog=<% = stopLog.IDStopLog %>&Mode=D">Eliminar</a> </th>
                                    </tr>        
                               
                     
@@ -34,7 +36,9 @@
                    </tbody>
                 </table>
 
-            </div>
+            </div> 
+
+            <asp:Button ID="btnNuevaParada" runat="server" Text="Nueva Parada" CssClass="btn btn-primary" onclick="btnNuevaParada_Click" />  
             
         </ContentTemplate>
     </asp:UpdatePanel>

@@ -53,6 +53,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.DataVisualization" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -120,6 +121,7 @@
     <Content Include="FormOperador.aspx" />
     <Content Include="FormPart.aspx" />
     <Content Include="FormStopCode.aspx" />
+    <Content Include="FormStopLog.aspx" />
     <Content Include="FormUsuario.aspx" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -232,6 +234,13 @@
     </Compile>
     <Compile Include="FormStopCode.aspx.designer.cs">
       <DependentUpon>FormStopCode.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormStopLog.aspx.cs">
+      <DependentUpon>FormStopLog.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormStopLog.aspx.designer.cs">
+      <DependentUpon>FormStopLog.aspx</DependentUpon>
     </Compile>
     <Compile Include="FormUsuario.aspx.cs">
       <DependentUpon>FormUsuario.aspx</DependentUpon>

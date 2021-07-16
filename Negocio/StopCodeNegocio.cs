@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dominio;
+using Negocio;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace Negocio
 {
@@ -40,6 +43,20 @@ namespace Negocio
             {
                 connection.closeConnection();
             }
+        }
+
+        public object getStopCode()
+        {
+            DataSet dataSet = new DataSet();
+
+            string filter = "SELECT IDStopCode, StopCodeName FROM StopCode";
+            connection = new AccesoDatos();
+            connection.setQuery(filter);
+            SqlDataAdapter dataAdapter = connection.executeDataReader();
+
+            dataAdapter.Fill(dataSet);
+
+            return dataSet;
         }
     }
 }

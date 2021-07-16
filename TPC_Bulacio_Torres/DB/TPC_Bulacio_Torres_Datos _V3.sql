@@ -98,12 +98,12 @@ SET IDENTITY_INSERT [dbo].[Turn] OFF
 GO
 SET IDENTITY_INSERT [dbo].[StopLog] ON
 GO
-INSERT [dbo].[StopLog]([IDStopLog], [IDMachine], IDStopCode, [IDUsers], [IDTurn], [StopLogBegin], [StopLogFinish], [StopLogObservation]) VALUES (1, 4, 1, 1, 3, CAST(N'20210620 01:00:00' as datetime), CAST(N'20210620 01:20:12' as datetime), N'Corto circuito en tablero principal.' )
+INSERT [dbo].[StopLog]([IDStopLog], [IDMachine], IDStopCode, [IDUsers], [IDTurn], [StopLogBegin], [StopLogFinish], [StopLogObservation], [StopLogStatus]) VALUES (1, 4, 1, 1, 3, CAST(N'20210620 01:00:00' as datetime), CAST(N'20210620 01:20:12' as datetime), N'Corto circuito en tablero principal.', 1)
 GO
-INSERT [dbo].[StopLog]([IDStopLog], [IDMachine], IDStopCode, [IDUsers], [IDTurn], [StopLogBegin], [StopLogFinish], [StopLogObservation]) VALUES (2, 4, 3, 1, 3, CAST(N'20210620 03:15:25' as datetime), CAST(N'20210620 04:35:23' as datetime), N'No pagaron la boleta de gas.')
+INSERT [dbo].[StopLog]([IDStopLog], [IDMachine], IDStopCode, [IDUsers], [IDTurn], [StopLogBegin], [StopLogFinish], [StopLogObservation], [StopLogStatus]) VALUES (2, 4, 3, 1, 3, CAST(N'20210620 03:15:25' as datetime), CAST(N'20210620 04:35:23' as datetime), N'No pagaron la boleta de gas.', 1)
 GO
-INSERT [dbo].[StopLog]([IDStopLog], [IDMachine], IDStopCode, [IDUsers], [IDTurn], [StopLogBegin], [StopLogFinish], [StopLogObservation]) VALUES (3, 2, 2, 2, 2, CAST(N'20210621 14:05:36' as datetime), CAST(N'20210621 14:27:18' as datetime), N'Se paró el compresor número 1.')
+INSERT [dbo].[StopLog]([IDStopLog], [IDMachine], IDStopCode, [IDUsers], [IDTurn], [StopLogBegin], [StopLogFinish], [StopLogObservation], [StopLogStatus]) VALUES (3, 2, 2, 2, 2, CAST(N'20210621 14:05:36' as datetime), CAST(N'20210621 14:27:18' as datetime), N'Se paró el compresor número 1.', 1)
 GO
-INSERT [dbo].[StopLog]([IDStopLog], [IDMachine], IDStopCode, [IDUsers], [IDTurn], [StopLogBegin], [StopLogFinish], [StopLogObservation]) VALUES (4, 2, 4, 2, 2, CAST(N'20210621 16:45:36' as datetime), CAST(N'20210621 16:55:24' as datetime), N'Limpieza del sector.')
+INSERT [dbo].[StopLog]([IDStopLog], [IDMachine], IDStopCode, [IDUsers], [IDTurn], [StopLogBegin], [StopLogFinish], [StopLogObservation], [StopLogStatus]) VALUES (4, 2, 4, 2, 2, CAST(N'20210621 16:45:36' as datetime), CAST(N'20210621 16:55:24' as datetime), N'Limpieza del sector.', 1)
 GO
 SET IDENTITY_INSERT [dbo].[StopLog] OFF

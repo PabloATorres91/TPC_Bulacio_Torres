@@ -16,8 +16,10 @@ namespace TPC_Bulacio_Torres
         {
             fillAndSetddlMachine();
             fillAndSetddlProductionLine();
-            fillAndSetddlTurn();
-
+            fillAndSetddlTurn();            
+            Session["ABMStopLogs.IDProductionLine"] = ddlProductionLine.SelectedValue.ToString();
+            Session["ABMStopLogs.IDMachine"] = ddlMachine.SelectedValue.ToString();
+            Session["ABMStopLogs.IDTurn"] = ddlTurn.SelectedValue.ToString();
         }
 
         private void fillAndSetddlTurn()

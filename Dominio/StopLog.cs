@@ -8,7 +8,7 @@ namespace Dominio
 {
     public class StopLog
     {
-        public int IDStopLog { get; set; }
+        public long IDStopLog { get; set; }
         public int IDMachine { get; set; }
         public int IDStopCode{ get; set; }
         public int IDUsers { get; set; }
@@ -16,6 +16,7 @@ namespace Dominio
         public DateTime StopLogBegin { get; set; }
         public DateTime StopLogFinish { get; set; }
         public string StopLogObservation { get; set; }
+        public bool StopLogStatus { get; set; }
 
     }
 }

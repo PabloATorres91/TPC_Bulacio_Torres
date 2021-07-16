@@ -64,7 +64,8 @@ CREATE TABLE StopLog(
 	IDTurn int not null foreign key references Turn(IDTurn),
 	StopLogBegin datetime not null,
 	StopLogFinish datetime not null,
-	StopLogObservation varchar (1000) null
+	StopLogObservation varchar (1000) null, 
+	StopLogStatus bit not null default (1)
 )
 
 GO
@@ -90,6 +91,13 @@ INSTEAD OF DELETE
 AS
 BEGIN
 	UPDATE Part SET PartStatus = 0 WHERE IDPart IN (SELECT IDPart FROM deleted)
+END
+GO
+CREATE TRIGGER TR_DELETE_STOPLOG ON StopLog
+INSTEAD OF DELETE
+AS
+BEGIN
+	UPDATE StopLog SET StopLogStatus = 0 WHERE IDStopLog IN (SELECT IDStopLog FROM deleted)
 END
 GO
 ALTER TABLE Logins add constraint CHK_LoginsDateIn check (LoginsDateIn <= GETDATE())
