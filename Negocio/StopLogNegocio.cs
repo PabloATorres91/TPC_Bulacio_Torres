@@ -25,7 +25,8 @@ namespace Negocio
                 while (connection.DataReader.Read())
                 {
                     StopLog auxStopLog = new StopLog();
-                    DateTime dateList = (DateTime)connection.DataReader["StopLogBegin"];
+                    DateTime dateList = (DateTime)connection.DataReader["StopLogBegin"];                   
+
                     if (date == dateList.ToString("dd-MM-yyyy"))
                     {
                         auxStopLog.IDStopLog = (long)connection.DataReader["IDStopLog"];
@@ -39,7 +40,7 @@ namespace Negocio
                         auxStopLog.StopLogStatus = (bool)connection.DataReader["StopLogStatus"];
 
                         stopLogList.Add(auxStopLog);
-                    }                 
+                    }
 
                 }
                 return stopLogList;
@@ -62,6 +63,70 @@ namespace Negocio
             connection = new AccesoDatos();
             try
             {
+                string query = "UPDATE StopLog SET IDMachine=@idMachine, IDStopCode=@idStopCode, IDUsers=@idUsers, IDTurn=@idTurn, StopLogBegin=@stopLogBegin, StopLogFinish=@stopLogFinish, StopLogObservation=@stopLogObservation WHERE IDStopLog=@idStopLog";
+                connection.setQuery(query);
+                connection.setQueryParams("@idStopLog", stopLog.IDStopLog);
+                connection.setQueryParams("@idMachine", stopLog.IDMachine);
+                connection.setQueryParams("@idStopCode", stopLog.IDStopCode);
+                connection.setQueryParams("@idUsers", stopLog.IDUsers);
+                connection.setQueryParams("@idTurn", stopLog.IDTurn);
+                connection.setQueryParams("@stopLogBegin", stopLog.StopLogBegin);
+                connection.setQueryParams("@stopLogFinish", stopLog.StopLogFinish);
+                connection.setQueryParams("@stopLogObservation", stopLog.StopLogObservation);
+                connection.executeAction();
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                connection.closeConnection();
+            }
+        }
+
+        public void addStopLog(StopLog stopLog)
+        {
+            connection = new AccesoDatos();
+
+            try
+            {
+                int newIDMachine = stopLog.IDMachine;
+                int newIDStopCode = stopLog.IDStopCode;
+                int newIDUsers = stopLog.IDUsers;
+                int newIDTurn = stopLog.IDTurn;
+                DateTime newStopLogBegin = stopLog.StopLogBegin;
+                DateTime newStopLogFinish = stopLog.StopLogFinish;
+                string newStopLogObservation = stopLog.StopLogObservation;
+                string values = "VALUES ('" + newIDMachine + "', '" + newIDStopCode + "', '" + newIDUsers + "', '" + newIDTurn + "', '" + newStopLogBegin + "', '" + newStopLogFinish + "', '" + newStopLogObservation + "')";
+                string query = "INSERT INTO StopLog(IDMachine, IDStopCode, IDUsers, IDTurn, StopLogBegin, StopLogFinish, StopLogObservation)" + values;
+                connection.setQuery(query);
+                connection.executeAction();
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                connection.closeConnection();
+            }
+
+        }
+
+        public void deleteStopLog(StopLog stopLog)
+        {
+            connection = new AccesoDatos();
+
+            try
+            {
+                string query = "DELETE FROM StopLog WHERE IDMachine = @idStopLog";
+                connection.setQuery(query);
+                connection.setQueryParams("@idStopLog", stopLog.IDStopLog);
+                connection.executeAction();
 
             }
             catch (Exception ex)

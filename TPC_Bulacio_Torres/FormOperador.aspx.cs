@@ -14,12 +14,17 @@ namespace TPC_Bulacio_Torres
        
         protected void Page_Load(object sender, EventArgs e)
         {
-            fillAndSetddlMachine();
-            fillAndSetddlProductionLine();
-            fillAndSetddlTurn();            
-            Session["ABMStopLogs.IDProductionLine"] = ddlProductionLine.SelectedValue.ToString();
-            Session["ABMStopLogs.IDMachine"] = ddlMachine.SelectedValue.ToString();
-            Session["ABMStopLogs.IDTurn"] = ddlTurn.SelectedValue.ToString();
+            if (!IsPostBack)
+            {
+                fillAndSetddlMachine();
+                fillAndSetddlProductionLine();
+                fillAndSetddlTurn();
+            }
+                Session["ABMStopLogs.IDProductionLine"] = ddlProductionLine.SelectedValue.ToString();
+                Session["ABMStopLogs.IDMachine"] = ddlMachine.SelectedValue.ToString();
+                Session["ABMStopLogs.IDTurn"] = ddlTurn.SelectedValue.ToString();
+          
+           
         }
 
         private void fillAndSetddlTurn()

@@ -24,6 +24,24 @@ namespace TPC_Bulacio_Torres
         protected global::System.Web.UI.WebControls.DropDownList ddlStopCode;
 
         /// <summary>
+        /// inputStopLogBegin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl inputStopLogBegin;
+
+        /// <summary>
+        /// inputStopLogFinish control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl inputStopLogFinish;
+
+        /// <summary>
         /// txtStopLogObservation control.
         /// </summary>
         /// <remarks>

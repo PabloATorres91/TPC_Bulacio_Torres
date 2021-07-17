@@ -11,14 +11,14 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label>Hora Inicial</label>
-                <input ID="inputStopLogBegin" type="time" name="inputStopLogBegin" step="3600" />
+                <input ID="inputStopLogBegin" runat="server" type="time" name="inputStopLogBegin"/>
             </div>
             
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label>Hora Final</label>
-                <input ID= "inputStopLogFinish" type="time" name="inputStopLogFinish" step="3600" />
+                <input ID= "inputStopLogFinish" runat="server" type="time" name="inputStopLogFinish"/>
             </div>
             
         </div>        

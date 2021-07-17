@@ -24,9 +24,12 @@ namespace TPC_Bulacio_Torres
             string userID = txtUser.Text;
             string userPassword = txtPassword.Text;
             userNegocio = new UsuarioNegocio();
+            Usuario user = new Usuario();
 
             if(userNegocio.validateLogin(userID, userPassword))
             {
+                user.UserID= userNegocio.getIDUser(userID);
+                Session["IDUser"] = user.UserID;
                 Response.Redirect("Index.aspx");
             }
             

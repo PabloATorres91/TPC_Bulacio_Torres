@@ -47,26 +47,39 @@ namespace TPC_Bulacio_Torres
                 string date = DateTime.Now.ToString("dd-MM-yyyy");
                 if (mode == "M")
                 {
+                    stopLog.IDStopLog = Convert.ToInt32(Request.QueryString["IDStopLog"]);
                     stopLog.IDMachine = Convert.ToInt32(Session["ABMStopLogs.IDMachine"]);
                     stopLog.IDStopCode = Convert.ToInt32(ddlStopCode.SelectedValue);
-                    stopLog.IDUsers = Convert.ToInt32(Request.QueryString["IDUser"]);
-                    stopLog.IDTurn = Convert.ToInt32(Session["ABMStopLogs.IDTun"]);
-                    /// ACA VA LO VALORES DE STOPLOGBEGIN Y STOPLOGFINISH QUE TODAVIA NO PUEDO OBTENERLOS DEL INPUT
+                    stopLog.IDUsers = (int)Session["IDUser"];
+                    stopLog.IDTurn = Convert.ToInt32(Session["ABMStopLogs.IDTurn"]);
+                    stopLog.StopLogBegin = Convert.ToDateTime(inputStopLogBegin.Value);
+                    stopLog.StopLogFinish = Convert.ToDateTime(inputStopLogFinish.Value);
                     stopLog.StopLogObservation = txtStopLogObservation.Text;
                     stopLogNegocio.modifyStopLog(stopLog);                   
                 } else if(mode == "D"){
                     //se elimina el registro
+                    stopLog.IDStopLog = Convert.ToInt32(Request.QueryString["IDStopLog"]);
+                    stopLogNegocio.deleteStopLog(stopLog);
+
                 }
                 else
                 {
                     ///nuevo registro
+                    stopLog.IDMachine = Convert.ToInt32(Session["ABMStopLogs.IDMachine"]);
+                    stopLog.IDStopCode = Convert.ToInt32(ddlStopCode.SelectedValue);
+                    stopLog.IDUsers = (int)Session["IDUser"];
+                    stopLog.IDTurn = Convert.ToInt32(Session["ABMStopLogs.IDTurn"]);
+                    stopLog.StopLogBegin = Convert.ToDateTime(inputStopLogBegin.Value);
+                    stopLog.StopLogFinish = Convert.ToDateTime(inputStopLogFinish.Value);
+                    stopLog.StopLogObservation = txtStopLogObservation.Text;
+                    stopLogNegocio.addStopLog(stopLog);
                 }
                 Response.Redirect("ABMStopLogs.aspx", false);
             }
             catch (Exception ex)
             {
-
-                throw ex;
+                Session.Add("Error", ex.ToString());
+                Response.Redirect("Index.aspx");
             }
 
         }

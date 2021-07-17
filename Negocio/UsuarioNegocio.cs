@@ -44,6 +44,33 @@ namespace Negocio
             }
         }
 
+        public int getIDUser(string userID)
+        {
+            Usuario auxUser = new Usuario();
+            connection = new AccesoDatos();
+
+            try
+            {
+                connection.setQuery("SELECT IDUsers FROM Users WHERE UsersName='" + userID + "'");
+                connection.executeReader();
+
+                while (connection.DataReader.Read())
+                {
+                    auxUser.UserID = (int)connection.DataReader["IDUsers"];
+                }
+                return auxUser.UserID;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.closeConnection();
+            }
+        }
+
         public bool validateUser(string userName)
         {
             connection = new AccesoDatos();
@@ -219,5 +246,6 @@ namespace Negocio
                 connection.closeConnection();
             }
         }
+        
     }
 }
