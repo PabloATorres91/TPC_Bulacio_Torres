@@ -11,7 +11,7 @@ namespace TPC_Bulacio_Torres
 {
 
 
-    public partial class SiteMaster
+    public partial class Site2
     {
 
         /// <summary>
@@ -24,12 +24,12 @@ namespace TPC_Bulacio_Torres
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Control MainContent.
+        /// Control MainContent2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder MainContent2;
     }
 }

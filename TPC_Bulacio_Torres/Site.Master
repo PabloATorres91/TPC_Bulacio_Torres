@@ -34,14 +34,17 @@
 
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="Index.aspx">
-          <div class="sidebar-brand-icon rotate-n-15">
+                <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
                 <div class="sidebar-brand-text mx-3">TPC_BULACIO_TORRES</div>
             </a>
+            <%-- Inicio PAT [2021/07/20] - Agrego validación para que cuando el usuario que ingresó tiene perfil admin, se muestren todos los elementos HTML--%>
+            <% if (Session["usuario"] != null && ((Dominio.Usuario)Session["usuario"]).UserIDProfile == 1)
+                {%>
+            <%-- Fin PAT [2021/07/20] - Agrego validación para que cuando el usuario que ingresó tiene perfil admin, se muestren todos los elementos HTML --%>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
@@ -53,9 +56,11 @@
 
             <!-- Nav Item - LINK 1 -->
             <li class="nav-item">
+               
                 <a class="nav-link" href="FormOperador">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>CARGAS DIARIAS</span></a>
+                    <span>CARGAS DIARIAS</span>
+                </a>
             </li>
 
             <!-- Divider -->
@@ -98,7 +103,8 @@
             <li class="nav-item">
                 <a class="nav-link" href="ABMPart.aspx">
                     <i class="fas fa-fw fa-chart-area"></i>
-                    <span>ABM Partes de Máquina</span></a>
+                    <span>ABM Partes de Máquina</span>
+                </a>
             </li>
 
             <!-- Nav Item - ABMStopCode -->
@@ -126,6 +132,7 @@
             <hr class="sidebar-divider d-none d-md-block">
 
             
+            <%} %> <%-- PAT [2021/07/20] - Agrego validación para que cuando el usuario que ingresó tiene perfil admin, se muestren todos los elementos HTML--%>
                    
         </ul>
         <!-- End of Sidebar -->

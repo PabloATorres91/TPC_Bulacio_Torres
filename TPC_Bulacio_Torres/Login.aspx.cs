@@ -21,16 +21,34 @@ namespace TPC_Bulacio_Torres
 
         protected void btnAccept_Click(object sender, EventArgs e)
         {
-            string userID = txtUser.Text;
-            string userPassword = txtPassword.Text;
-            userNegocio = new UsuarioNegocio();
-            Usuario user = new Usuario();
 
-            if(userNegocio.validateLogin(userID, userPassword))
+            try
             {
-                user.UserID= userNegocio.getIDUser(userID);
-                Session["IDUser"] = user.UserID;
-                Response.Redirect("Index.aspx");
+                string userID = txtUser.Text;
+                string userPassword = txtPassword.Text;
+                userNegocio = new UsuarioNegocio();
+                Usuario user = new Usuario();
+
+                if (userNegocio.validateLogin(userID, userPassword))
+                {
+                    user.UserID = userNegocio.getIDUser(userID);
+                    Session["IDUser"] = user.UserID;
+                    user = userNegocio.getFullUserByUserName(userID);
+                    Session["usuario"] = user;
+                    //Response.Redirect("ABMStopLogs.aspx", false);
+                    Response.Redirect("ABMStopCodes.aspx", false);
+                }
+                else
+                {
+                    Session.Add("error", "User o Pass Incorrectos");
+                    Response.Redirect("Error.aspx", false);
+                }
+
+            }
+            catch(Exception ex)
+            {
+                Session.Add("error", ex.ToString());
+                Response.Redirect("Error.aspx");
             }
             
         }

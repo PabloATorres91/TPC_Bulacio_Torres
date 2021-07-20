@@ -173,6 +173,52 @@ namespace Negocio
 
         }
 
+        #region Getting user by user name
+        public Usuario getFullUserByUserName(string userName)
+        {
+            Usuario auxUser = new Usuario();
+            connection = new AccesoDatos();
+
+            try
+            {
+                //SELECT * FROM Users WHERE IDUsers=1
+                auxUser.UserIDEmployee = 0;
+
+                connection.setQuery("SELECT * FROM Users WHERE UsersName='" + userName + "'");
+                connection.executeReader();
+
+                while (connection.DataReader.Read())
+                {
+                    auxUser.UserIDEmployee = (int)connection.DataReader["IDUsers"];
+                    auxUser.UserName = (string)connection.DataReader["UsersName"];
+                    auxUser.UserIDProfile = (int)connection.DataReader["IDProfiles"];
+                    auxUser.UserEmail = (string)connection.DataReader["UsersEmail"];
+                    auxUser.UserPass = (string)connection.DataReader["UsersPass"];
+                    auxUser.UserDate = (DateTime)connection.DataReader["UsersDate"];
+                    auxUser.UserID = (int)connection.DataReader["IDUsers"];
+                }
+
+                if (auxUser.UserIDEmployee != 0)
+                {
+                    return auxUser;
+                }
+                else
+                {
+                    return auxUser;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.closeConnection();
+            }
+
+        }
+        #endregion getting user by user name
+
         public int modifyUser(Usuario user)
         {
             connection = new AccesoDatos();
