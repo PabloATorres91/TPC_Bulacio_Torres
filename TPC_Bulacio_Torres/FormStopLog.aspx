@@ -1,6 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="FormStopLog.aspx.cs" Inherits="TPC_Bulacio_Torres.FormStopLog" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
       
+    <div class="container-fluid">
+         <!-- Page Heading -->
+            <h1 class="h3 mb-2 text-gray-800">FORMULARIO DE PARADAS DIARIAS</h1>
+            <p class="mb-4">Sección para la Creación, Modificación y Eliminación de Paradas Diarias.</p>
+            <!-- End Page Heading -->  
+        
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label>Motivo de Parada</label>
@@ -38,5 +44,7 @@
                 </div>
             </div>
         </div>   
+    </div>    
+  
          
 </asp:Content>

@@ -14,15 +14,58 @@ namespace TPC_Bulacio_Torres
         StopLogNegocio stopLogNegocio;
         StopLog stopLog;
         protected void Page_Load(object sender, EventArgs e)
-        {
+        {           
+
             if (!IsPostBack)
             {
-                fillAndSetddlStopCode();
-                
-                
+                if(Request.QueryString["IDStopLog"] != null)
+                {
+                    stopLogNegocio = new StopLogNegocio();
+                    stopLog = new StopLog();
+                    stopLog = stopLogNegocio.getFullStopLog(Request.QueryString["IDStopLog"]);
+                    string mode = Request.QueryString["Mode"];
 
+                    if(stopLog.IDStopLog != 0)
+                    {
+                        fillAndSetddlStopCode();
+                        txtStopLogObservation.Text = stopLog.StopLogObservation.ToString();
+
+                        if (mode == "M")
+                        {
+                            btnAceptarParada.Text = "Modificar";
+                        }
+                        else if (mode == "D")
+                        {
+                            ddlStopCode.Enabled = false;
+                            //ACA SE DEBERIA DESSHBILITAR LOS INPUT DE STOPLOGBEGIN Y STOPLOGFINISH
+                            btnAceptarParada.Text = "Eliminar";
+                            
+                        }
+                       
+                    }
+                    else
+                    {
+                        //No existe registro StopLog
+                    }
+                }
+                else
+                {
+                    //Nuevo Registro StopLog
+                    try
+                    {
+                        fillAndSetddlStopCode();
+                        btnAceptarParada.Text = "Registrar Parada";
+                    }
+                    catch (Exception ex)
+                    {
+
+                        throw ex;
+                    }                  
+
+                }              
+                                     
             }
-
+           
         }
 
         private void fillAndSetddlStopCode()
@@ -86,7 +129,7 @@ namespace TPC_Bulacio_Torres
 
         protected void btnCancelarParada_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("ABMStopLogs.aspx");
         }
     }
 }

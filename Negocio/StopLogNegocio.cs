@@ -25,22 +25,37 @@ namespace Negocio
                 while (connection.DataReader.Read())
                 {
                     StopLog auxStopLog = new StopLog();
-                    DateTime dateList = (DateTime)connection.DataReader["StopLogBegin"];                   
+                    DateTime dateList = (DateTime)connection.DataReader["StopLogBegin"];
+                    int auxIdMachine = (int)connection.DataReader["IDMachine"];
+                    int auxIdTurn = (int)connection.DataReader["IDTurn"];
+                    bool status= (bool)connection.DataReader["StopLogStatus"];
 
-                    if (date == dateList.ToString("dd-MM-yyyy"))
+                    if(idMachine == auxIdMachine)
                     {
-                        auxStopLog.IDStopLog = (long)connection.DataReader["IDStopLog"];
-                        auxStopLog.IDMachine = (int)connection.DataReader["IDMachine"];
-                        auxStopLog.IDStopCode = (int)connection.DataReader["IDStopCode"];
-                        auxStopLog.IDUsers = (int)connection.DataReader["IDUsers"];
-                        auxStopLog.IDTurn = (int)connection.DataReader["IDTurn"];
-                        auxStopLog.StopLogBegin = (DateTime)connection.DataReader["StopLogBegin"];
-                        auxStopLog.StopLogFinish = (DateTime)connection.DataReader["StopLogFinish"];
-                        auxStopLog.StopLogObservation = (string)connection.DataReader["StopLogObservation"];
-                        auxStopLog.StopLogStatus = (bool)connection.DataReader["StopLogStatus"];
+                        if (date == dateList.ToString("dd-MM-yyyy"))
+                        {
+                            if (auxIdTurn == idTurn)
+                            {
+                                if (status == true)
+                                {
+                                    auxStopLog.IDStopLog = (long)connection.DataReader["IDStopLog"];
+                                    auxStopLog.IDMachine = (int)connection.DataReader["IDMachine"];
+                                    auxStopLog.IDStopCode = (int)connection.DataReader["IDStopCode"];
+                                    auxStopLog.IDUsers = (int)connection.DataReader["IDUsers"];
+                                    auxStopLog.IDTurn = (int)connection.DataReader["IDTurn"];
+                                    auxStopLog.StopLogBegin = (DateTime)connection.DataReader["StopLogBegin"];
+                                    auxStopLog.StopLogFinish = (DateTime)connection.DataReader["StopLogFinish"];
+                                    auxStopLog.StopLogObservation = (string)connection.DataReader["StopLogObservation"];
+                                    auxStopLog.StopLogStatus = (bool)connection.DataReader["StopLogStatus"];
 
-                        stopLogList.Add(auxStopLog);
-                    }
+                                    stopLogList.Add(auxStopLog);
+                                }
+
+                            }
+
+                        }
+
+                    }                   
 
                 }
                 return stopLogList;
@@ -56,6 +71,40 @@ namespace Negocio
 
             }
 
+        }
+
+        public StopLog getFullStopLog(string stopLog)
+        {
+            StopLog auxStopLog = new StopLog();
+            connection = new AccesoDatos();
+            try
+            {
+                auxStopLog.IDStopLog = 0;
+                connection.setQuery("Select * from StopLog where IDStopLog = '"+ stopLog +"'");
+                connection.executeReader();
+                while (connection.DataReader.Read())
+                {
+                    auxStopLog.IDStopLog = (long)connection.DataReader["IDStopLog"];
+                    auxStopLog.IDMachine = (int)connection.DataReader["IDMachine"];
+                    auxStopLog.IDStopCode = (int)connection.DataReader["IDStopCode"];
+                    auxStopLog.IDUsers = (int)connection.DataReader["IDUsers"];
+                    auxStopLog.IDTurn = (int)connection.DataReader["IDTurn"];
+                    auxStopLog.StopLogBegin = (DateTime)connection.DataReader["StopLogBegin"];
+                    auxStopLog.StopLogFinish = (DateTime)connection.DataReader["StopLogFinish"];
+                    auxStopLog.StopLogObservation = (string)connection.DataReader["StopLogObservation"];
+                    auxStopLog.StopLogStatus = (bool)connection.DataReader["StopLogStatus"];
+                }
+                return auxStopLog;
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                connection.closeConnection();
+            }
         }
 
         public void modifyStopLog(StopLog stopLog)
@@ -123,7 +172,7 @@ namespace Negocio
 
             try
             {
-                string query = "DELETE FROM StopLog WHERE IDMachine = @idStopLog";
+                string query = "DELETE FROM StopLog WHERE IDStopLog = @idStopLog";
                 connection.setQuery(query);
                 connection.setQueryParams("@idStopLog", stopLog.IDStopLog);
                 connection.executeAction();

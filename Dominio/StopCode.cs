@@ -10,5 +10,7 @@ namespace Dominio
     {
         public int IDStopCode { get; set; }
         public string StopCodeName { get; set; }
+        public bool StopCodeState { get; set; }
+
     }
 }

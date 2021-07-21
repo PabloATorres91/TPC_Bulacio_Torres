@@ -118,6 +118,8 @@
     <Content Include="Error.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="FormDataTable.aspx" />
+    <Content Include="FormIndicators.aspx" />
     <Content Include="FormMaquina.aspx" />
     <Content Include="FormOperador.aspx" />
     <Content Include="FormPart.aspx" />
@@ -213,6 +215,20 @@
     </Compile>
     <Compile Include="Error.aspx.designer.cs">
       <DependentUpon>Error.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormDataTable.aspx.cs">
+      <DependentUpon>FormDataTable.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormDataTable.aspx.designer.cs">
+      <DependentUpon>FormDataTable.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormIndicators.aspx.cs">
+      <DependentUpon>FormIndicators.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FormIndicators.aspx.designer.cs">
+      <DependentUpon>FormIndicators.aspx</DependentUpon>
     </Compile>
     <Compile Include="FormMaquina.aspx.cs">
       <DependentUpon>FormMaquina.aspx</DependentUpon>

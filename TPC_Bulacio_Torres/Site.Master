@@ -91,10 +91,10 @@
 
                     <!-- Nav Item - LINK 2 Collapse Menu -->
                     <li class="nav-item">
-                        <a class="nav-link collapsed" href="LINK 2" data-target="#collapseTwo"
+                        <a class="nav-link collapsed" href="FormIndicators" data-target="#collapseTwo"
                             aria-expanded="true" aria-controls="collapseTwo">
                             <i class="fas fa-fw fa-cog"></i>
-                            <span>LINK 2</span>
+                            <span>INDICADORES</span>
                         </a>
       
                     </li>

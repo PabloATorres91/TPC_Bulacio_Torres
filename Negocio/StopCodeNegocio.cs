@@ -26,11 +26,17 @@ namespace Negocio
 
                 while(connection.DataReader.Read())
                 {
-                    StopCode auxStopCode = new StopCode();
-                    auxStopCode.IDStopCode = (int)connection.DataReader["IDStopCode"];
-                    auxStopCode.StopCodeName = (string)connection.DataReader["StopCodeName"];
+                    bool status = (bool)connection.DataReader["StopCodeState"];
 
-                    list.Add(auxStopCode);
+                    if(status == true)
+                    {
+                        StopCode auxStopCode = new StopCode();
+                        auxStopCode.IDStopCode = (int)connection.DataReader["IDStopCode"];
+                        auxStopCode.StopCodeName = (string)connection.DataReader["StopCodeName"];
+
+                        list.Add(auxStopCode);
+                    }
+                    
                 }
 
                 return list;
@@ -49,7 +55,7 @@ namespace Negocio
         {
             DataSet dataSet = new DataSet();
 
-            string filter = "SELECT IDStopCode, StopCodeName FROM StopCode";
+            string filter = "SELECT IDStopCode, StopCodeName, StopCodeState FROM StopCode";
             connection = new AccesoDatos();
             connection.setQuery(filter);
             SqlDataAdapter dataAdapter = connection.executeDataReader();
@@ -58,6 +64,7 @@ namespace Negocio
 
             return dataSet;
         }
+        
 
         public StopCode getStopCodeById(string idStopCode)
         {
@@ -75,6 +82,7 @@ namespace Negocio
                 {
                     auxStopCode.IDStopCode = (int)connection.DataReader["IDStopCode"];
                     auxStopCode.StopCodeName = (string)connection.DataReader["StopCodeName"];
+                    auxStopCode.StopCodeState = (bool)connection.DataReader["StopCodeState"];
                 }
                 if(auxStopCode.IDStopCode != 0)
                 {
@@ -146,8 +154,8 @@ namespace Negocio
             try
             {
                 string newStopCodeName = stopCode.StopCodeName;
-                string values = "VALUES('" + newStopCodeName + "'," + true + "')";
-                string query = "INSERT INTO StopCode (UsersName, UserState) " + values;
+                string values = "VALUES('" + newStopCodeName + "')";
+                string query = "INSERT INTO StopCode (StopCodeName)" + values;
                 connection.setQuery(query);
                 return connection.executeActionWithResult();
             }
