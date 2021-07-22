@@ -12,7 +12,6 @@ namespace TPC_Bulacio_Torres
     public partial class ABMStopLogs : System.Web.UI.Page
     {
         public List<StopLog> stopLogList;
-        //List<StopLog> auxStopLogList;
         StopLogNegocio stopLogNegocio;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -20,7 +19,7 @@ namespace TPC_Bulacio_Torres
             {
                 int idMachine = Int32.Parse((string)Session["ABMStopLogs.IDMachine"]);
                 int idTurn = Int32.Parse((string)Session["ABMStopLogs.IDTurn"]);
-                string date = DateTime.Now.ToString("dd-MM-yyyy");
+                string date = DateTime.Now.ToString("yyyy-MM-dd");
                 stopLogNegocio = new StopLogNegocio();
                 stopLogList = stopLogNegocio.listStoplog(idMachine, idTurn, date);
             }

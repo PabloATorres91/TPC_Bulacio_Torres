@@ -15,6 +15,7 @@ namespace Dominio
         public int IDTurn { get; set; }
         public DateTime StopLogBegin { get; set; }
         public DateTime StopLogFinish { get; set; }
+        public TimeSpan TiempoMinutos { get; set; }
         public string StopLogObservation { get; set; }
         public bool StopLogStatus { get; set; }
 

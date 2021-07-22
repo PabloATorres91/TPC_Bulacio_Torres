@@ -32,7 +32,7 @@ namespace Negocio
 
                     if(idMachine == auxIdMachine)
                     {
-                        if (date == dateList.ToString("dd-MM-yyyy"))
+                        if (date == dateList.ToString("yyyy-MM-dd"))
                         {
                             if (auxIdTurn == idTurn)
                             {

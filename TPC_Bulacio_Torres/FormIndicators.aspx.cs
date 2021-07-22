@@ -14,17 +14,14 @@ namespace TPC_Bulacio_Torres
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            FormOperador formOperador = new FormOperador();
+            
             if (!IsPostBack)
             {
                 fillAndSetddlMachine();
                 fillAndSetddlProductionLine();
-                fillAndSetddlTurn();
-                
+                fillAndSetddlTurn();                
             }
-            Session["FormIndicators.IDProductionLine"] = ddlProductionLine.SelectedValue.ToString();
-            Session["FormIndicators.IDMachine"] = ddlMachine.SelectedValue.ToString();
-            Session["FormIndicators.IDTurn"] = ddlTurn.SelectedValue.ToString();
+            
         }
         private void fillAndSetddlTurn()
         {
@@ -60,6 +57,11 @@ namespace TPC_Bulacio_Torres
         {
             try
             {
+                Session["FormIndicators.IDProductionLine"] = ddlProductionLine.SelectedValue.ToString();
+                Session["FormIndicators.IDMachine"] = ddlMachine.SelectedValue.ToString();
+                Session["FormIndicators.IDTurn"] = ddlTurn.SelectedValue.ToString();
+                Session["FormIndicators.Date"] = inputDate.Value;
+
                 Response.Redirect("FormDataTable.aspx", false);
             }
             catch (Exception ex)

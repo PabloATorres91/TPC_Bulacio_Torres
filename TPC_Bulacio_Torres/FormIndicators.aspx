@@ -21,6 +21,13 @@
                 </div>            
             </div>
             <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Fecha</label>
+                <input ID= "inputDate" runat="server" type="date" name="inputDate"/>
+            </div>
+            
+        </div> 
+            <div class="form-row">
                 <div class="form-group col-md-6">
                     <label>Turno</label>
                     <asp:DropDownList ID="ddlTurn" runat="server"></asp:DropDownList>

@@ -16,15 +16,35 @@
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label>Hora Inicial</label>
-                <input ID="inputStopLogBegin" runat="server" type="time" name="inputStopLogBegin"/>
+                 <%if (Request.QueryString["Mode"] !="D")
+                    { %>
+                        <label>Hora Desde</label>
+                        <input ID="inputStopLogBegin" runat="server" type="time" name="inputStopLogBegin"/>
+                       
+                <%} %>
+                
+                <%if (Request.QueryString["IDStopLog"] != null)
+                    { %>
+                        <label for="inputAddress">Hora Inicio</label> 
+                        <asp:TextBox ID="txtStopLogBegin" runat="server" width="80" Enabled="false" />
+                <%} %>
             </div>
             
         </div>
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label>Hora Final</label>
-                <input ID= "inputStopLogFinish" runat="server" type="time" name="inputStopLogFinish"/>
+                 <%if (Request.QueryString["Mode"] !="D")
+                    { %>
+                        <label>Hora Hasta</label>
+                        <input id="inputStopLogFinish" runat="server" type="time" name="inputStopLogFinish" />
+
+                 <%} %>
+
+                 <%if (Request.QueryString["IDStopLog"] != null)
+                    { %>
+                        <label for="inputAddress">Hora Fin</label> 
+                        <asp:TextBox ID="txtStopLogFinish" runat="server" width="80" Enabled="false" />
+                 <%} %>
             </div>
             
         </div>        

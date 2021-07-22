@@ -33,6 +33,15 @@ namespace TPC_Bulacio_Torres
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl inputStopLogBegin;
 
         /// <summary>
+        /// txtStopLogBegin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtStopLogBegin;
+
+        /// <summary>
         /// inputStopLogFinish control.
         /// </summary>
         /// <remarks>
@@ -40,6 +49,15 @@ namespace TPC_Bulacio_Torres
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl inputStopLogFinish;
+
+        /// <summary>
+        /// txtStopLogFinish control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtStopLogFinish;
 
         /// <summary>
         /// txtStopLogObservation control.

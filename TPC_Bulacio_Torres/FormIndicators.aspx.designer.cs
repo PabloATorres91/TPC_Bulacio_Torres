@@ -33,6 +33,15 @@ namespace TPC_Bulacio_Torres
         protected global::System.Web.UI.WebControls.DropDownList ddlMachine;
 
         /// <summary>
+        /// inputDate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl inputDate;
+
+        /// <summary>
         /// ddlTurn control.
         /// </summary>
         /// <remarks>

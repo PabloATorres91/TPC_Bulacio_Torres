@@ -29,6 +29,8 @@ namespace TPC_Bulacio_Torres
                     {
                         fillAndSetddlStopCode();
                         txtStopLogObservation.Text = stopLog.StopLogObservation.ToString();
+                        txtStopLogBegin.Text = stopLog.StopLogBegin.ToString("hh:mm");
+                        txtStopLogFinish.Text = stopLog.StopLogFinish.ToString("hh:mm");
 
                         if (mode == "M")
                         {
@@ -37,7 +39,7 @@ namespace TPC_Bulacio_Torres
                         else if (mode == "D")
                         {
                             ddlStopCode.Enabled = false;
-                            //ACA SE DEBERIA DESSHBILITAR LOS INPUT DE STOPLOGBEGIN Y STOPLOGFINISH
+                            txtStopLogObservation.Enabled = false;
                             btnAceptarParada.Text = "Eliminar";
                             
                         }
@@ -51,6 +53,8 @@ namespace TPC_Bulacio_Torres
                 else
                 {
                     //Nuevo Registro StopLog
+                    stopLogNegocio = new StopLogNegocio();
+                    stopLog = new StopLog();
                     try
                     {
                         fillAndSetddlStopCode();
@@ -76,6 +80,15 @@ namespace TPC_Bulacio_Torres
             ddlStopCode.DataTextField = "StopCodeName";
             ddlStopCode.DataValueField = "IDStopCode";
             ddlStopCode.DataBind();
+           
+            if (Convert.ToBoolean(stopLog.IDStopCode))
+            {
+                ddlStopCode.SelectedValue = stopLog.IDStopCode.ToString();
+            }
+            else
+            {
+                ddlStopCode.SelectedValue = "0";
+            }
 
         }
 
@@ -87,7 +100,7 @@ namespace TPC_Bulacio_Torres
             try
             {
                 string mode = Request.QueryString["Mode"];
-                string date = DateTime.Now.ToString("dd-MM-yyyy");
+                string date = DateTime.Now.ToString("yyyy-MM-dd");
                 if (mode == "M")
                 {
                     stopLog.IDStopLog = Convert.ToInt32(Request.QueryString["IDStopLog"]);

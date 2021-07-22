@@ -20,9 +20,7 @@ namespace TPC_Bulacio_Torres
                 fillAndSetddlProductionLine();
                 fillAndSetddlTurn();
             }
-                Session["ABMStopLogs.IDProductionLine"] = ddlProductionLine.SelectedValue.ToString();
-                Session["ABMStopLogs.IDMachine"] = ddlMachine.SelectedValue.ToString();
-                Session["ABMStopLogs.IDTurn"] = ddlTurn.SelectedValue.ToString();
+                
           
            
         }
@@ -59,6 +57,9 @@ namespace TPC_Bulacio_Torres
         {
             try
             {
+                Session["ABMStopLogs.IDProductionLine"] = ddlProductionLine.SelectedValue.ToString();
+                Session["ABMStopLogs.IDMachine"] = ddlMachine.SelectedValue.ToString();
+                Session["ABMStopLogs.IDTurn"] = ddlTurn.SelectedValue.ToString();
                 Response.Redirect("ABMStopLogs.aspx", false);
             }
             catch (Exception ex)
