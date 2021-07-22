@@ -19,16 +19,21 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <%foreach (Dominio.Usuario user in list)
-                            { %>
-                                <tr>
-                                    <th><%= user.UserName %></th>
-                                    <th><%= user.UserIDProfile%></th>
-                                    <th><%= user.UserEmail%></th>
-                                    <th> <a href="FormUsuario.aspx?IDUser=<%=user.UserID %>&Mode=M">Modificar</a> </th>
-                                    <th> <a href="FormUsuario.aspx?IDUser=<%=user.UserID %>&Mode=D">Eliminar</a> </th>
-                                </tr>
-                        <%  } %>
+                        <%
+                            if (Session["usuario"] != null || Convert.ToBoolean(Application.Get("debugMode")) == true)
+                            {
+                                foreach (Dominio.Usuario user in list)
+                                { %>
+                                    <tr>
+                                        <th><%= user.UserName %></th>
+                                        <th><%= user.UserIDProfile%></th>
+                                        <th><%= user.UserEmail%></th>
+                                        <th> <a href="FormUsuario.aspx?IDUser=<%=user.UserID %>&Mode=M">Modificar</a> </th>
+                                        <th> <a href="FormUsuario.aspx?IDUser=<%=user.UserID %>&Mode=D">Eliminar</a> </th>
+                                    </tr>
+                              <%}
+                            }
+                        %>
                     </tbody>
                 </table>
             </div>

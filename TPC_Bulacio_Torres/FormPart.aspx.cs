@@ -139,7 +139,7 @@ namespace TPC_Bulacio_Torres
             {
                 //Reenviamos el error a Index.aspx
                 Session.Add("Error", ex.ToString());
-                Response.Redirect("Index.aspx");
+                Response.Redirect("Error.aspx");
             }
 
         }

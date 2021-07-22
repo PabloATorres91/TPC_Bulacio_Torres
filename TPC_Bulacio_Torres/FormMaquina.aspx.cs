@@ -147,7 +147,7 @@ namespace TPC_Bulacio_Torres
 
                 //Analizar si hay que agregar un form de error. Por lo pronto reenviamos el error a Index.aspx
                 Session.Add("Error", ex.ToString());
-                Response.Redirect("Index.aspx");
+                Response.Redirect("Error.aspx");
             }
         }
     }

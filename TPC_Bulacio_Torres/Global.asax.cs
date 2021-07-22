@@ -16,6 +16,8 @@ namespace TPC_Bulacio_Torres
             // Código que se ejecuta al iniciar la aplicación
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            Application["debugMode"] = false;
         }
     }
 }

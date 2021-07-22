@@ -122,7 +122,7 @@ namespace TPC_Bulacio_Torres
             catch (Exception ex)
             {
                 Session.Add("Error", ex.ToString());
-                Response.Redirect("Index.aspx");
+                Response.Redirect("Error.aspx");
             }
 
         }

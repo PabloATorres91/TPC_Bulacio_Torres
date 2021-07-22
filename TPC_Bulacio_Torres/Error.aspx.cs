@@ -16,5 +16,10 @@ namespace TPC_Bulacio_Torres
                 lblError.Text = Session["error"].ToString();
             }
         }
+
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Login.aspx");
+        }
     }
 }

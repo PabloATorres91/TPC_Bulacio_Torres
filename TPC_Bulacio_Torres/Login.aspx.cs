@@ -36,7 +36,7 @@ namespace TPC_Bulacio_Torres
                     user = userNegocio.getFullUserByUserName(userID);
                     Session["usuario"] = user;
                     //Response.Redirect("ABMStopLogs.aspx", false);
-                    Response.Redirect("ABMStopCodes.aspx", false);
+                    Response.Redirect("FormOperador.aspx", false);
                 }
                 else
                 {

@@ -15,8 +15,16 @@ namespace TPC_Bulacio_Torres
         UsuarioNegocio userNegocio;
         protected void Page_Load(object sender, EventArgs e)
         {
-            userNegocio = new UsuarioNegocio();
-            list = userNegocio.listUsers();
+            if (Session["usuario"] != null || Convert.ToBoolean(Application.Get("debugMode")))
+            {
+                userNegocio = new UsuarioNegocio();
+                list = userNegocio.listUsers();
+            }
+            else
+            {
+                Session.Add("error", "Primero debes logearte");
+                Response.Redirect("Error.aspx", false);
+            }
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)

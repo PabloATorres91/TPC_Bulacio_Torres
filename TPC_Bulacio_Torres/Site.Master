@@ -42,14 +42,16 @@
                 <div class="sidebar-brand-text mx-3">TPC_BULACIO_TORRES</div>
             </a>
                 
-                <% if (Session["usuario"] != null && 
-                        (
-                            ((Dominio.Usuario)Session["usuario"]).UserIDProfile == 1 || // Profile 1 -> Administrador
-                            ((Dominio.Usuario)Session["usuario"]).UserIDProfile == 2 || // Profile 2 -> Jefe de area
-                            ((Dominio.Usuario)Session["usuario"]).UserIDProfile == 3 || // Profile 3 -> Supervisor
-                            ((Dominio.Usuario)Session["usuario"]).UserIDProfile == 4 || // Profile 4 -> Técnico
-                            ((Dominio.Usuario)Session["usuario"]).UserIDProfile == 5    // Profile 5 -> Operador
-                        )
+                <% if ( (Session["usuario"] != null && 
+                            (
+                                ((Dominio.Usuario)Session["usuario"]).UserIDProfile == 1 || // Profile 1 -> Administrador
+                                ((Dominio.Usuario)Session["usuario"]).UserIDProfile == 2 || // Profile 2 -> Jefe de area
+                                ((Dominio.Usuario)Session["usuario"]).UserIDProfile == 3 || // Profile 3 -> Supervisor
+                                ((Dominio.Usuario)Session["usuario"]).UserIDProfile == 4 || // Profile 4 -> Técnico
+                                ((Dominio.Usuario)Session["usuario"]).UserIDProfile == 5    // Profile 5 -> Operador
+                            )
+                                || Convert.ToBoolean(Application.Get("debugMode")) == true
+                            )
                        )
                   {%>
                     <!-- Divider -->
@@ -71,14 +73,16 @@
 
                 <%} %>
 
-                <% if (Session["usuario"] != null && 
-                        (
-                            ((Dominio.Usuario)Session["usuario"]).UserIDProfile == 1 || // Profile 1 -> Administrador
-                            ((Dominio.Usuario)Session["usuario"]).UserIDProfile == 2 || // Profile 2 -> Jefe de area
-                            ((Dominio.Usuario)Session["usuario"]).UserIDProfile == 3 || // Profile 3 -> Supervisor
-                            ((Dominio.Usuario)Session["usuario"]).UserIDProfile == 4 || // Profile 4 -> Técnico
-                            ((Dominio.Usuario)Session["usuario"]).UserIDProfile != 5    // Profile 5 -> Operador
-                        )
+                <% if ( (Session["usuario"] != null && 
+                            (
+                                ((Dominio.Usuario)Session["usuario"]).UserIDProfile == 1 || // Profile 1 -> Administrador
+                                ((Dominio.Usuario)Session["usuario"]).UserIDProfile == 2 || // Profile 2 -> Jefe de area
+                                ((Dominio.Usuario)Session["usuario"]).UserIDProfile == 3 || // Profile 3 -> Supervisor
+                                ((Dominio.Usuario)Session["usuario"]).UserIDProfile == 4 || // Profile 4 -> Técnico
+                                ((Dominio.Usuario)Session["usuario"]).UserIDProfile != 5  // Profile 5 -> Operador
+                            )
+                        ) 
+                        || Convert.ToBoolean(Application.Get("debugMode")) == true
                        )
                   {%>
                     <!-- Divider -->
@@ -110,10 +114,12 @@
                     </li>
                 <%} %>
 
-                <% if (Session["usuario"] != null && 
-                        (
-                            ((Dominio.Usuario)Session["usuario"]).UserIDProfile == 1  // Profile 1 -> Administrador
+                <% if ( (Session["usuario"] != null && 
+                            (
+                                ((Dominio.Usuario)Session["usuario"]).UserIDProfile == 1 // Profile 1 -> Administrador
+                            )
                         )
+                        || Convert.ToBoolean(Application.Get("debugMode")) == true
                        )
                   {%>
                     <!-- Divider -->
